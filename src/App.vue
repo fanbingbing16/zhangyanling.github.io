@@ -1,6 +1,7 @@
 <template>
   <div id="app2">
     <router-view></router-view>
+ 
   </div>
 </template>
 
@@ -38,6 +39,7 @@ body {
   border: 1px solid transparent;
   box-sizing: border-box;
 }
-
-
+div#app {
+    height: 100%;
+}
 </style>
