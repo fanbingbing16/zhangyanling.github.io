@@ -4,6 +4,7 @@ import { createRouter, createWebHashHistory } from "vue-router";
 import HelloWorld from './components/HelloWorld.vue'
 import calendar from './components/calendar.vue'
 import Timer from './components/Timer'
+import pikaqiu from './components/pikaqiu.vue'
 const routes = [
   {
     path: '/', redirect: '/HelloWorld', component: App,
@@ -19,6 +20,10 @@ const routes = [
   {
     path: '/', redirect: '/timer', component: App,
     children: [{ path: '/timer', component: Timer }]
+  },
+  {
+    path: '/', redirect: '/pikaqiu', component: App,
+    children: [{ path: '/pikaqiu', component: pikaqiu }]
   }
 
 ]

@@ -4,7 +4,7 @@
   border-style: solid;
   position: relative;
   @if ($direction==top) {
-    border-width: 0 $size $size * 2 $size;
+    border-width: 0 $size $size  $size;
     border-color: transparent transparent $border-color transparent;
   }
   @if ($direction==right) {
@@ -17,6 +17,14 @@
     border-top-color: transparent;
     border-bottom-color: transparent;
   }
+  @if ($direction==bottom) {
+    border-width: $size $size 0 $size;
+    border-top-color: $border-color;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    cursor: pointer;
+  }
 }
 @mixin triangleB($direction: top, $size: 5px, $border-color: #e3e4e5) {
   width: 0;
@@ -25,9 +33,9 @@
   border-style: solid;
   position: absolute;
   @if ($direction==top) {
-    border-width: 0 $size $size * 2 $size;
+    border-width: 0 $size $size  $size;
     border-color: transparent transparent $border-color transparent;
-    top: 3px;
+    top: 2px;
     left: -5px;
   }
   @if ($direction==right) {
@@ -43,6 +51,15 @@
     border-bottom-color: transparent;
     top: -5px;
     left: 2px;
+  }
+  @if ($direction==bottom) {
+    border-width: $size $size $size $size;
+    border-right-color: transparent;
+    border-top-color: $border-color;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    top: -7px;
+    left: -5px;
   }
 }
 .flex{

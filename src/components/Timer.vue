@@ -1,50 +1,61 @@
 <template>
-  <div
-    class="timer"
-    :style="boxs.length > 4 ? 'height:100%;overflow-y:scroll;' : ''"
-  >
-    <div
-      class="box"
-      v-for="(box, index) in boxs"
-      :key="box.id"
-      :class="(index % 2 === 1 ? 'm-l-10 ' : '') + (index > 1 ? 'm-t-10' : '')"
+  <div class="flex" style="justify-content: center">
+    <button
+      @click="add"
+      class="m-t-30"
+      style="margin-left: 10%; align-self: baseline"
     >
-      <div class="top">
-        <span>{{ box.title }}</span>
-        <span class="big">放大</span>
+      新增
+    </button>
+
+    <div class="timer" :style="boxs.length > 4 ? 'height:100%;' : ''">
+      <div
+        class="box"
+        v-for="(box, index) in boxs"
+        :key="box.id"
+        :class="
+          (index % 2 === 1 ? 'm-l-10 ' : '') + (index > 1 ? 'm-t-10' : '')
+        "
+      >
+        <div class="top">
+          <span>{{ box.title }}</span>
+          <span class="big" @click="deleteOne(box.id)">删除</span>
+        </div>
+        <div class="content">
+          <circle-vue
+            :startnum="box.startnum || 0"
+            :id="'canvas' + box.id"
+            :text="box.text"
+          ></circle-vue>
+        </div>
+        <div class="bottom m-b-10">
+          <span @click="boxs[index].stop = true" v-if="box.stop === false"
+            >暂停</span
+          >
+          <span @click="start(box, index)" v-if="box.stop === true">开始</span>
+          <span @click="reset(index)"> 重置</span>
+        </div>
       </div>
-      <div class="content">
-        <circle-vue
-          :startnum="box.startnum || 0"
-          :id="'canvas' + box.id"
-          :text="box.text"
-        ></circle-vue>
-      </div>
-      <div class="bottom">
-        <span @click="boxs[index].stop = true" v-if="box.stop === false"
-          >暂停</span
-        >
-        <span @click="start(box, index)" v-if="box.stop === true">开始</span>
-        <span @click="reset(index)"> 重置</span>
-      </div>
+      <add-timer :visible="visible" @submit="addTimer"></add-timer>
     </div>
   </div>
 </template>
 <script>
 import circleVue from './timer/circle.vue'
+import addTimer from './timer/add'
 export default {
-  components: { circleVue },
+  components: { circleVue, addTimer },
   data() {
     return {
       startnum: 0,
+      visible: false,
       boxs: [
-        { timer: { minute: 5, second: 5, hour: 0 }, yuan: { minute: 15, second: 5, hour: 0 }, stop: false, title: '五分钟', id: 1 },
-        { timer: { minute: 5, second: 5, hour: 0 }, yuan: { minute: 15, second: 5, hour: 0 }, stop: false, title: '五分钟', id: 2 },
-        { timer: { minute: 5, second: 5, hour: 0 }, yuan: { minute: 25, second: 5, hour: 0 }, stop: false, title: '五分钟', id: 3 },
-        { timer: { minute: 5, second: 5, hour: 0 }, yuan: { minute: 5, second: 5, hour: 0 }, stop: false, title: '五分钟', id: 4 },
-        { timer: { minute: 5, second: 5, hour: 1 }, yuan: { minute: 5, second: 5, hour: 1 }, stop: false, title: '五分钟', id: 5 },
-        { timer: { minute: 0, second: 5, hour: 0 }, yuan: { minute: 5, second: 5, hour: 1 }, stop: false, title: '五分钟', id: 6 },
-
+        { timer: { minute: 5, second: 5, hour: 0 }, yuan: { minute: 5, second: 5, hour: 0 }, stop: false, title: '五分钟', id: 1 },
+        // { timer: { minute: 5, second: 5, hour: 0 }, yuan: { minute: 15, second: 5, hour: 0 }, stop: false, title: '五分钟', id: 2 },
+        // { timer: { minute: 5, second: 5, hour: 0 }, yuan: { minute: 25, second: 5, hour: 0 }, stop: false, title: '五分钟', id: 3 },
+        // { timer: { minute: 5, second: 5, hour: 0 }, yuan: { minute: 5, second: 5, hour: 0 }, stop: false, title: '五分钟', id: 4 },
+        // { timer: { minute: 5, second: 5, hour: 1 }, yuan: { minute: 5, second: 5, hour: 1 }, stop: false, title: '五分钟', id: 5 },
+        // { timer: { minute: 0, second: 5, hour: 0 }, yuan: { minute: 5, second: 5, hour: 1 }, stop: false, title: '五分钟', id: 6 },
         // { timer: { minute: 0, second: 5, hour: 0 }, yuan: { minute: 0, second: 5, hour: 0 }, stop: false, title: '五分钟', id: 6 },
         // { timer: { minute: 0, second: 5, hour: 0 }, yuan: { minute: 0, second: 5, hour: 0 }, stop: false, title: '五分钟', id: 7 },
         // { timer: { minute: 0, second: 5, hour: 0 }, yuan: { minute: 0, second: 5, hour: 0 }, stop: false, title: '五分钟', id: 8 },
@@ -80,9 +91,21 @@ export default {
     }, 1000)
   },
   methods: {
+    add() {
+      this.visible = false
+      setTimeout(() => { this.visible = true })
+    },
+    addTimer(data) {
+      this.visible = false
+      this.boxs.push({ timer: { minute: data.time[1], second: data.time[2], hour: data.time[0] }, yuan: { minute: data.time[1], second: data.time[2], hour: data.time[0] }, stop: false, title: data.name, id: this.boxs.slice(-1)[0].id + 1 || 1 },
+      )
+    },
+    deleteOne(id) {
+      this.boxs = this.boxs.filter(item => item.id !== id)
+    },
     reset(index) {
       this.boxs[index].timer = { ...this.boxs[index].yuan }
-      this.boxs[index].stop=true
+      this.boxs[index].stop = true
       this.boxs[index].startnum = (this.boxs[index].timer.hour * 60 + this.boxs[index].timer.minute + this.boxs[index].timer.second / 60) / (this.boxs[index].yuan.hour * 60 + this.boxs[index].yuan.minute + this.boxs[index].yuan.second / 60) * 100
       this.boxs[index].text = `${this.boxs[index].timer.hour >= 10 ? this.boxs[index].timer.hour : ('0' + this.boxs[index].timer.hour)}:${this.boxs[index].timer.minute >= 10 ? this.boxs[index].timer.minute : ('0' + this.boxs[index].timer.minute)}:${this.boxs[index].timer.second >= 10 ? this.boxs[index].timer.second : ('0' + this.boxs[index].timer.second)}`
     },
@@ -96,9 +119,16 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+button {
+  height: 30px;
+  border: 0;
+  width: 70px;
+  border-radius: 10px;
+  cursor: pointer;
+}
 .timer {
   width: 50%;
-  margin: auto;
+  // margin: auto;
   display: flex;
   flex-wrap: wrap;
   overflow-x: hidden;
@@ -118,6 +148,7 @@ export default {
       justify-content: space-between;
       .big {
         text-align: end;
+        cursor: pointer;
       }
     }
     .content {
@@ -126,6 +157,7 @@ export default {
     }
     .bottom {
       cursor: pointer;
+      margin-top: -10px;
     }
   }
 }
