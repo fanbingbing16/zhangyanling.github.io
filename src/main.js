@@ -5,13 +5,13 @@ import HelloWorld from './components/HelloWorld.vue'
 import calendar from './components/calendar.vue'
 import Timer from './components/Timer'
 import pikaqiu from './components/pikaqiu.vue'
+import computer from './components/computer/computer.vue'
+import helloKitty from './components/helloKitty/helloKitty'
+import duolam from './components/duolam/duolam.vue'
 const routes = [
   {
     path: '/', redirect: '/HelloWorld', component: App,
-    children: [
-      { path: '/HelloWorld', component: HelloWorld, }
-
-    ]
+    children: [{ path: '/HelloWorld', component: HelloWorld, }]
   },
   {
     path: '/', redirect: '/calendar', component: App,
@@ -24,6 +24,18 @@ const routes = [
   {
     path: '/', redirect: '/pikaqiu', component: App,
     children: [{ path: '/pikaqiu', component: pikaqiu }]
+  },
+  {
+    path: '/', redirect: '/computer', component: App,
+    children: [{ path: '/computer', component: computer }]
+  },
+  {
+    path: '/', redirect: '/helloKitty', component: App,
+    children: [{ path: '/helloKitty', component: helloKitty }]
+  },
+  {
+    path: '/', redirect: '/duolam', component: App,
+    children: [{ path: '/duolam', component: duolam }]
   }
 
 ]

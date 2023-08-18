@@ -26,7 +26,7 @@
         <button class="m-l-10" @click="visibleOne = false">取消</button>
       </div>
     </div>
-    <dialog-vue dialog-title="提示" :visible="visibleTip">
+    <dialog-vue dialog-title="提示" v-model:visible="visibleTip">
       <template v-slot:body>
         {{ tip }}
       </template>
@@ -61,26 +61,23 @@ export default {
   watch: {
     visible(newVal) {
       this.visibleOne = newVal
+    },
+    visibleTip(newVal){
+      console.log(newVal,'newVal visibleTip')
     }
   },
   methods: {
     //增加计时器
     submit() {
-      this.visibleTip = false
+      // this.visibleTip = false
       if (!this.name) {
         this.tip = '名称必填'
-        setTimeout(() => {
-          this.visibleTip = true
-
-        })
+        this.visibleTip = true
         return
       }
       if (this.time[0] === 0 && this.time[1] === 0 && this.time[2] === 0) {
         this.tip = '时间需要大于0'
-        setTimeout(() => {
-          this.visibleTip = true
-
-        })
+        this.visibleTip = true
         return
       }
       this.$emit('submit', { name: this.name, time: this.time })

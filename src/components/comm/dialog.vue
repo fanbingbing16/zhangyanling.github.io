@@ -4,7 +4,7 @@
     <div class="content">
       <div class="top-title">
         <div>{{ dialogTitle }}</div>
-        <i @click="visibleOne = false">x</i>
+        <i @click="close">x</i>
       </div>
       <div class="comm-sialog-body">
               <slot name="body"></slot>
@@ -43,6 +43,10 @@ export default {
     }
   },
   methods: {
+    close(){
+      this.visibleOne = false;
+      this.$emit('update:visible', false); 
+    }
   }
 }
 </script>
