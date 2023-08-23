@@ -30,14 +30,15 @@ body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* text-align: center; */
+   text-align: center; 
   color: #2c3e50;
   /* margin-top: 60px; */
   padding-top: 0;
   height: 100%;
   width: 100%;
-  border: 1px solid transparent;
+  // border: 1px solid transparent;
   box-sizing: border-box;
+  
 }
 div#app {
     height: 100%;

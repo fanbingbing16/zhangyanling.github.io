@@ -24,7 +24,8 @@
 .duolam {
   background: #f5cb5f;
   width: 300px;
-  height: 159px;  margin: auto;
+  height: 206px;
+  margin: auto;
   position: relative;
   margin-top: 10%;
   overflow: hidden;
@@ -261,6 +262,19 @@
     border-bottom-color: transparent;
     border-left-color: transparent;
     transform: rotate(1deg);
+    border-right-color: transparent;
+  }
+  .mouth {
+    width: 100px;
+    height: 50px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    top: 157px;
+    z-index: 2;
+    left: 87px;
+    position: absolute;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
     border-right-color: transparent;
   }
 }

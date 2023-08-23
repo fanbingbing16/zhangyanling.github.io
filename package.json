@@ -8,8 +8,10 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "axios": "^1.4.0",
     "chinese-lunar-calendar": "^1.0.1",
     "core-js": "^3.8.3",
+    "element-plus": "^2.3.9",
     "sass-resources-loader": "^2.2.5",
     "vue": "^3.2.13",
     "vue-router": "^4.2.2",

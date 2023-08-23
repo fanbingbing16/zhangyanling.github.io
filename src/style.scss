@@ -150,3 +150,13 @@
     @include set-value(padding-right, $i+px);
   }
 }
+form.el-form.demo-ruleForm {
+  padding-top: 2%;
+  padding-right: 2%;
+  margin-top: 12%;
+  width: 29%;
+  /* height: 40%; */
+  z-index: 9999;
+  border: 1px solid #e7e3e3;
+  box-shadow: 1px 1px 9px 1px #e9e7e7;
+}
