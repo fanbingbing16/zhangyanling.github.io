@@ -9,6 +9,9 @@
     <router-link :to="{ path: '/blockBreaker' }">打砖块</router-link>
     <router-link :to="{ path: '/calendar' }">日历</router-link>
     <router-link :to="{ path: '/timer' }">计时器</router-link>
+    <router-link :to="{ path: '/editor' }">编辑器</router-link>
+    <router-link :to="{ path: '/tianqi' }">天气预报</router-link>
+
     <!-- <router-link :to="{ path: '/computer' }">计算器</router-link>  -->
   </div>
 </template>

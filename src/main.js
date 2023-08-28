@@ -13,7 +13,8 @@ import blockBreaker from './components/blockBreaker/blockBreaker.vue'
 import axios from 'axios'
 import ElementPlus from 'element-plus'
 import 'element-plus/theme-chalk/index.css'
-
+import Editor from './components/editor/editor'
+import tianqi from './components/tianqi/index'
 const routes = [
   {
     path: '/', redirect: '/HelloWorld', component: App,
@@ -46,6 +47,14 @@ const routes = [
   {
     path: '/', redirect: '/blockBreaker', component: App,
     children: [{ path: '/blockBreaker', component: blockBreaker }]
+  },
+  {
+    path: '/', redirect: '/editor', component: App,
+    children: [{ path: '/editor', component: Editor }]
+  },
+  {
+    path: '/', redirect: '/tianqi', component: App,
+    children: [{ path: '/tianqi', component: tianqi }]
   }
 
 ]

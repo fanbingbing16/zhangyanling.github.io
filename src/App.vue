@@ -38,7 +38,7 @@ body {
   width: 100%;
   // border: 1px solid transparent;
   box-sizing: border-box;
-  
+  padding: 1px;
 }
 div#app {
     height: 100%;
