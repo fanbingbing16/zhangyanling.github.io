@@ -43,4 +43,8 @@ body {
 div#app {
     height: 100%;
 }
+html {
+  overflow-x:hidden; //隐藏水平滚动条
+  overflow-y:hidden;//隐藏垂直滚动条
+}
 </style>

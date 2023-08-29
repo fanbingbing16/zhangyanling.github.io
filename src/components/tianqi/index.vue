@@ -31,8 +31,33 @@
             {{ type }}
           </div>
         </div>
+        <div
+          class="load_4cwYw back_5ndVv"
+          v-if="weatherSlice[0] > 0"
+          @click="changeSlice('jian')"
+        >
+          <i class="cos-icon cu-icon icon_roUEV OP_LOG_BTN" data-module="lgin">
+            ＜
+          </i>
+        </div>
+        <div
+          class="load_4cwYw more_3kyUW"
+          @click="changeSlice('add')"
+          v-if="weatherSlice[0] < timeWeather.length - 10"
+        >
+          <i class="cos-icon cu-icon icon_roUEV OP_LOG_BTN" data-module="lgin"
+            >＞</i
+          >
+        </div>
         <div class="air" v-if="selectWeatherType === '气温'">
-          <div v-for="(air, index) in timeWeather" :key="index" class="air-one">
+          <div
+            v-for="(air, index) in timeWeather.slice(
+              weatherSlice[0],
+              weatherSlice[1]
+            )"
+            :key="index"
+            class="air-one"
+          >
             <div>{{ air.time }}</div>
             <img :src="air.image" />
             <div>{{ air.tem }}</div>
@@ -40,7 +65,14 @@
           </div>
         </div>
         <div class="wind air" v-if="selectWeatherType === '风力'">
-          <div v-for="(air, index) in timeWeather" :key="index" class="air-one">
+          <div
+            v-for="(air, index) in timeWeather.slice(
+              weatherSlice[0],
+              weatherSlice[1]
+            )"
+            :key="index"
+            class="air-one"
+          >
             <div>{{ air.time }}</div>
             <div>{{ air.wind }}</div>
             <div class="back">
@@ -50,7 +82,14 @@
           </div>
         </div>
         <div class="precipitation air" v-if="selectWeatherType === '降水量'">
-          <div v-for="(air, index) in timeWeather" :key="index" class="air-one">
+          <div
+            v-for="(air, index) in timeWeather.slice(
+              weatherSlice[0],
+              weatherSlice[1]
+            )"
+            :key="index"
+            class="air-one"
+          >
             <div>{{ air.time }}</div>
             <div>{{ air.precipitation }}</div>
             <div class="back"></div>
@@ -60,10 +99,20 @@
           class="ultravioletRays air"
           v-show="selectWeatherType === '紫外线'"
         >
-          <div v-for="(air, index) in timeWeather" :key="index" class="air-one">
+          <div
+            v-for="(air, index) in timeWeather.slice(
+              weatherSlice[0],
+              weatherSlice[1]
+            )"
+            :key="index"
+            class="air-one"
+          >
             <div>{{ air.time }}</div>
             <div class="line" :style="getLineSty(index)">
-              {{ data[index] }}级
+              {{ data.slice(
+              weatherSlice[0],
+              weatherSlice[1]
+            )[index] }}级
             </div>
           </div>
         </div>
@@ -74,22 +123,43 @@
           <div class="flex toggle-button">
             <div
               :style="selectType === '趋势' ? 'background:white;' : ''"
-              @click="selectType = '趋势'"
+              @click="selectType = '趋势';clickTime = ''"
             >
               趋势
             </div>
             <div
               :style="selectType === '列表' ? 'background:white;' : ''"
-              @click="selectType = '列表'"
+              @click="selectType = '列表';clickTime = ''"
             >
               列表
             </div>
           </div>
         </div>
+        <div
+          class="load_4cwYw back_5ndVv two"
+          v-if="typeSlice[0] > 0 && selectType === '趋势'"
+          @click="changeTypeSlice('jian')"
+        >
+          <i class="cos-icon cu-icon icon_roUEV OP_LOG_BTN" data-module="lgin">
+            ＜
+          </i>
+        </div>
+        <div
+          class="load_4cwYw more_3kyUW two"
+          @click="changeTypeSlice('add')"
+          v-if="typeSlice[0] < fifteenDays.length - 7 && selectType === '趋势'"
+        >
+          <i class="cos-icon cu-icon icon_roUEV OP_LOG_BTN" data-module="lgin"
+            >＞</i
+          >
+        </div>
         <div class="content flex" v-if="selectType === '趋势'">
           <div
             class="content-one"
-            v-for="(fif, index) in fifteenDays"
+            v-for="(fif, index) in fifteenDays.slice(
+              typeSlice[0],
+              typeSlice[1]
+            )"
             :key="index"
             :style="clickTime === index ? 'background:rgb(221 221 221);' : ''"
             @click="clickTime = index"
@@ -124,15 +194,30 @@
         </div>
         <div v-if="clickTime !== ''" class="text">
           <div class="title">
-            {{ fifteenDays[clickTime] && fifteenDays[clickTime].text }}
-            {{ fifteenDays[clickTime] && fifteenDays[clickTime].min }}~{{
-              fifteenDays[clickTime] && fifteenDays[clickTime].max
-            }}℃
+            {{
+              selectType === "列表"
+                ? fifteenDays[clickTime] && fifteenDays[clickTime].text
+                : fifteenDays.slice(typeSlice[0], typeSlice[1])[clickTime]&&fifteenDays.slice(typeSlice[0], typeSlice[1])[clickTime].text
+            }}
+            {{
+              selectType === "列表"
+                ? fifteenDays[clickTime] && fifteenDays[clickTime].min
+                : fifteenDays.slice(typeSlice[0], typeSlice[1])[clickTime]&&fifteenDays.slice(typeSlice[0], typeSlice[1])[clickTime].min
+            }}
+            ~{{
+              selectType === "列表"
+                ? fifteenDays[clickTime] && fifteenDays[clickTime].max
+                :fifteenDays.slice(typeSlice[0], typeSlice[1])[clickTime]&& fifteenDays.slice(typeSlice[0], typeSlice[1])[clickTime].max
+            }}
           </div>
           <div>风力风向</div>
           <div>
-            {{ fifteenDays[clickTime].direction
-            }}{{ fifteenDays[clickTime].wind }}
+            {{selectType === "列表"
+                ? fifteenDays[clickTime] && fifteenDays[clickTime].direction
+                : fifteenDays.slice(typeSlice[0], typeSlice[1])[clickTime].direction
+            }}{{selectType === "列表"
+                ? fifteenDays[clickTime] && fifteenDays[clickTime].wind
+                : fifteenDays.slice(typeSlice[0], typeSlice[1])[clickTime]&&fifteenDays.slice(typeSlice[0], typeSlice[1])[clickTime].wind }}
           </div>
         </div>
       </div>
@@ -149,6 +234,8 @@ export default {
       data: [4, 8, 9, 9, 6, 6, 5, 3, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 2, 2, 2, 3, 0, 0, 0, 4, 5, 4, 5, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       weatherType: ['气温', '风力', '降水量', '紫外线'],
       selectWeatherType: '气温',
+      weatherSlice: [0, 10],
+      typeSlice: [0, 7],
       timeWeather: [],
       monn: 'https://gips1.baidu.com/it/u=368649220,551644837&fm=3028&app=3028&f=PNG&fmt=auto&q=100&size=f84_84',
       cloudy: 'https://gips2.baidu.com/it/u=4212037040,745107134&fm=3028&app=3028&f=PNG&fmt=auto&q=100&size=f84_84',
@@ -190,7 +277,7 @@ export default {
     }
     //格式化日期
     Date.prototype.Format = function (fmt = "yyyy-MM-dd") {
-      var o = {
+      let o = {
         "M+": this.getMonth() + 1, //月份
         "d+": this.getDate(), //日
         "h+": this.getHours(), //小时
@@ -200,14 +287,14 @@ export default {
         "S": this.getMilliseconds() //毫秒
       };
       if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
-      for (var k in o)
+      for (let k in o)
         if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
       return fmt;
     }
     //获取当前日期
-    var today = new Date();
+    let today = new Date();
     // 获取前一天
-    var yesterday = new Date(today);
+    let yesterday = new Date(today);
     yesterday.setDate(today.getDate() - 2);
     //结束时间
     let newDate = date.setDate(date.getDate() + 12)
@@ -216,16 +303,16 @@ export default {
     this.fifteenDays = fifteenDays.map((item, index) => {
       let day = index <= 2 ? ['昨天', '今天', '明天'][index] : (this.getDayZhou(new Date(`${date.getFullYear()}/${item}`).getDay()))
       const min = Math.floor(Math.random() * 10) + 20
-      const tian1 = Math.round(Math.random() * 4)
-      const tian2 = Math.round(Math.random() * 4)
+      const tian1 = Math.round(Math.random() * 3)
+      const tian2 = Math.round(Math.random() * 3)
       const type = { 'cloudy': '多云', 'sum': '晴天', 'yin': '阴天', 'monn': '黑', 'rain': '雨天' }
       return {
         day,
         time: item,
         min,
         max: min + Math.floor(Math.random() * 4) + 2,
-        tian1: this[['cloudy', 'sum', 'yin', 'rain', 'monn'][tian1]],
-        tian2: this[['cloudy', 'sum', 'yin', 'rain', 'monn'][tian2]],
+        tian1: this[['cloudy', 'sum', 'yin', 'rain'][tian1]],
+        tian2: this[['cloudy', 'sum', 'yin', 'rain'][tian2]],
         direction: ['西北风', '西风', '东北风', '西南风', '南风', '东南风', '东风', '北风', '西风'][Math.floor(Math.random() * 9)],
         wind: ['1级', '<3级', '3-4级', '4-5级'][Math.floor(Math.random() * 4)],
         text: `${tian1 === tian2 ? type[['cloudy', 'sum', 'yin', 'rain', 'monn'][tian1]] : (type[['cloudy', 'sum', 'yin', 'rain', 'monn'][tian1]] + '转' + type[['cloudy', 'sum', 'yin', 'rain', 'monn'][tian2]])}`
@@ -253,14 +340,43 @@ export default {
 
       return (index) => {
         return {
-          'height': this.data[index] * 4 + 'px',
-          'border-top': `4px solid ${topColor[this.data[index]]}`,
-          'margin-top': (9 - this.data[index]) * 4 + 10 + 'px'
+          'height': this.data.slice(this.weatherSlice[0], this.weatherSlice[1])[index] * 4 + 'px',
+          'border-top': `4px solid ${topColor[this.data.slice(this.weatherSlice[0], this.weatherSlice[1])[index]]}`,
+          'margin-top': (9 - this.data.slice(this.weatherSlice[0], this.weatherSlice[1])[index]) * 4 + 10 + 'px'
         }
       }
     }
   },
   methods: {
+    changeTypeSlice(type) {
+      this.clickTime = ''
+      if (type === 'add') {
+        this.typeSlice[0] += 7
+        this.typeSlice[1] += 7
+        if (this.typeSlice[0] >= this.fifteenDays.length) {
+          this.typeSlice[0] -= 7
+          this.typeSlice[1] -= 7
+        }
+
+      } else {
+        this.typeSlice[0] -= 7
+        this.typeSlice[1] -= 7
+      }
+    },
+    changeSlice(type) {
+      if (type === 'add') {
+        this.weatherSlice[0] += 10
+        this.weatherSlice[1] += 10
+        if (this.weatherSlice[0] >= this.timeWeather.length) {
+          this.weatherSlice[0] -= 10
+          this.weatherSlice[1] -= 10
+        }
+
+      } else {
+        this.weatherSlice[0] -= 10
+        this.weatherSlice[1] -= 10
+      }
+    },
     getDayZhou(day) {
 
       return ['周日', '周一', '周二', '周三', '周四', '周五', '周六'][day]
@@ -270,30 +386,30 @@ export default {
       return `${tomorrow.getMonth() + 1}/${tomorrow.getDate()}`
     },
     getBetween(day1, day2) {
-      var dateArr = new Array();
-      var currentDate;
-      var getDate = function (str) {
-        var tempDate = new Date();
-        var list = str.split("-");
+      let dateArr = new Array();
+      let currentDate;
+      let getDate = function (str) {
+        let tempDate = new Date();
+        let list = str.split("-");
         tempDate.setFullYear(list[0]);
         tempDate.setMonth(list[1] - 1);
         tempDate.setDate(list[2]);
         return tempDate;
       }
-      var date1 = getDate(day1);
-      var date2 = getDate(day2);
+      let date1 = getDate(day1);
+      let date2 = getDate(day2);
       if (date1 > date2) {
-        var tempDate = date1;
+        let tempDate = date1;
         date1 = date2;
         date2 = tempDate;
       }
       date1.setDate(date1.getDate() + 1);
       dateArr = [];
-      var i = 0;
+      let i = 0;
       while (!(date1.getFullYear() == date2.getFullYear()
         && date1.getMonth() == date2.getMonth() && date1.getDate() == date2
           .getDate())) {
-        var dayStr = date1.getDate().toString();
+        let dayStr = date1.getDate().toString();
         if (dayStr.length == 1) {
           dayStr = "0" + dayStr;
         }
@@ -326,11 +442,54 @@ export default {
     position: absolute;
     top: 0;
     border-radius: 10px;
-
     left: 0;
+    object-fit: cover;
+    height: 100%;
   }
   .content {
     position: relative;
+    .load_4cwYw.more_3kyUW {
+      right: 0;
+    }
+    .load_4cwYw.back_5ndVv {
+      left: 0;
+    }
+
+    .load_4cwYw {
+      position: absolute;
+      top: 40%;
+      transform: translateY(-50%);
+      background-color: #fff;
+      height: 32px;
+      width: 32px;
+      border-radius: 16px;
+      font-size: 16px;
+      opacity: 0.8;
+      cursor: pointer;
+      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+      z-index: 2;
+      text-align: center;
+      user-select: none;
+      .icon_roUEV {
+        color: #333;
+        line-height: 32px;
+        width: 16px;
+        height: 32px;
+        margin: 0 auto;
+      }
+      .cu-icon {
+        font-family: cosmicIcon !important;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+    }
+    .two {
+      top: 70%;
+    }
+    .load_4cwYw:hover {
+      opacity: 1;
+    }
   }
   .top {
     display: flex;
@@ -366,6 +525,7 @@ export default {
   }
   .select-weather {
     margin-top: 10px;
+
     .button-list {
       div {
         padding: 6px 10px;
@@ -381,7 +541,7 @@ export default {
     .air {
       overflow-y: hidden;
       display: flex;
-      overflow-x: scroll;
+      overflow-x: hidden;
       width: 100%;
       margin-top: 10px;
       img {
@@ -411,10 +571,10 @@ export default {
     }
     .wind {
       .air-one {
-        width: 65px;
+        width: 50px;
         text-align: center;
         div {
-          width: 65px;
+          width: 50px;
           // margin-top: 10px;
         }
         div:nth-child(2) {
@@ -485,11 +645,13 @@ export default {
       cursor: pointer;
       // display: flex;
       width: 100%;
-      overflow-x: scroll;
+      // overflow-x: scroll;
+      overflow-x: hidden;
       .content-one {
-        width: 90px;
+        width: 85.72px;
         padding: 10px;
         border-radius: 10px;
+        box-sizing: border-box;
         div {
           width: 60px;
         }
@@ -503,6 +665,19 @@ export default {
         background: #f2f3f5;
       }
     }
+
+    .content::-webkit-scrollbar {
+      width: 4px;
+    }
+    .content::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.2);
+    }
+    .content::-webkit-scrollbar-track {
+      border-radius: 0;
+      background: rgba(0, 0, 0, 0.1);
+    }
+
     .lie {
       overflow-x: hidden;
       overflow-y: scroll;
@@ -519,7 +694,7 @@ export default {
       background: #f7f7f8;
       text-align: left;
       padding: 20px;
-      border-radius:10px;
+      border-radius: 10px;
       div:nth-child(2) {
         margin-top: 10px;
       }
@@ -540,4 +715,4 @@ export default {
     }
   }
 }
-</style>
+</style> 
