@@ -11,6 +11,7 @@
     <router-link :to="{ path: '/timer' }">计时器</router-link>
     <router-link :to="{ path: '/editor' }">编辑器</router-link>
     <router-link :to="{ path: '/tianqi' }">天气预报</router-link>
+    <router-link :to="{ path: '/triangle' }">在线图形生成器</router-link>
 
     <!-- <router-link :to="{ path: '/computer' }">计算器</router-link>  -->
   </div>
