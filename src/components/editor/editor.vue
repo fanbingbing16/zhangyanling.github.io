@@ -90,7 +90,7 @@ export default {
   methods: {
 
     focus() {
-      this.$refs.editor.focus();
+      this.$refs.editor?.focus();
     },
     toggleBold() {
       document.execCommand("bold");
@@ -107,7 +107,6 @@ export default {
     },
     changeFontSize() {
       // Handle font size change logic
-      console.log(this.fontSize, 'this.fontSize')
       document.execCommand("fontSize", false, this.fontSize)
     },
     changeFont() {
@@ -123,7 +122,6 @@ export default {
       this.selectionStart = e.target.selectionStart
       this.selectionEnd = e.target.selectionEnd
       this.select = window.getSelection().toString()
-      console.lo
     }
   },
   computed: {

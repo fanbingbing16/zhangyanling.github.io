@@ -11,6 +11,7 @@ import helloKitty from '../components/helloKitty/helloKitty'
 import duolam from '../components/duolam/duolam.vue'
 import blockBreaker from '../components/blockBreaker/blockBreaker.vue'
 import triangle from '../components/Triangle'
+import tetris from '../components/Tetris'
 export const routes = [
   {
     path: '/', redirect: '/HelloWorld', component: App,
@@ -55,6 +56,10 @@ export const routes = [
   {
     path: '/', redirect: '/triangle', component: App,
     children: [{ path: '/triangle', component: triangle }]
+  },
+  {
+    path: '/', redirect: '/tetris', component: App,
+    children: [{ path: '/tetris', component: tetris }]
   }
 
 ]

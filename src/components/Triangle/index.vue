@@ -309,8 +309,5 @@ transform: rotate(-70deg);`
       }
     }
   }
-  #star-five {
-    // margin-left: calc(50% - 90px) !important;
-  }
 }
 </style>
