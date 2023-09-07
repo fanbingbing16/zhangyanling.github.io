@@ -12,6 +12,9 @@ import duolam from '../components/duolam/duolam.vue'
 import blockBreaker from '../components/blockBreaker/blockBreaker.vue'
 import triangle from '../components/Triangle'
 import tetris from '../components/Tetris'
+import game2048 from '../components/2048Game'
+import mineDlearance from '../components/mineDlearance'
+import gobang from '../components/gobang'
 export const routes = [
   {
     path: '/', redirect: '/HelloWorld', component: App,
@@ -60,6 +63,18 @@ export const routes = [
   {
     path: '/', redirect: '/tetris', component: App,
     children: [{ path: '/tetris', component: tetris }]
+  },
+  {
+    path: '/', redirect: '/2048', component: App,
+    children: [{ path: '/2048', component: game2048 }]
+  },
+  {
+    path: '/', redirect: '/mineDlearance', component: App,
+    children: [{ path: '/mineDlearance', component: mineDlearance }]
+  },
+  {
+    path: '/', redirect: '/gobang', component: App,
+    children: [{ path: '/gobang', component: gobang }]
   }
-
+  
 ]

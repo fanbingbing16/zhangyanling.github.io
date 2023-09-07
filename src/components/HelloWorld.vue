@@ -4,7 +4,6 @@
     <router-link :to="{ path: '/helloKitty' }">helloKitty</router-link>
     <router-link :to="{ path: '/duolam' }">哆啦a梦</router-link>
     <!-- <router-link :to="{ path: '/pikaqiu' }">皮卡丘</router-link>-->
-
     <!-- vue -->
     <router-link :to="{ path: '/calendar' }">日历</router-link>
     <router-link :to="{ path: '/timer' }">计时器</router-link>
@@ -15,6 +14,10 @@
     <!-- vue小游戏 -->
     <router-link :to="{ path: '/blockBreaker' }">打砖块</router-link>
     <router-link :to="{ path: '/tetris' }">俄罗斯方块</router-link>
+    <router-link :to="{ path: '/2048' }">2048</router-link>
+    <router-link :to="{ path: '/mineDlearance' }">扫雷</router-link>
+    <router-link :to="{ path: '/gobang' }">五子棋</router-link>
+
 
   </div>
 </template>
