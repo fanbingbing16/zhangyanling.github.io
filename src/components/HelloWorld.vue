@@ -17,6 +17,7 @@
     <router-link :to="{ path: '/2048' }">2048</router-link>
     <router-link :to="{ path: '/mineDlearance' }">扫雷</router-link>
     <router-link :to="{ path: '/gobang' }">五子棋</router-link>
+    <router-link :to="{ path: '/play2' }">play</router-link>
 
 
   </div>
