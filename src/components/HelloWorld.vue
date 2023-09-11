@@ -18,7 +18,7 @@
     <router-link :to="{ path: '/mineDlearance' }">扫雷</router-link>
     <router-link :to="{ path: '/gobang' }">五子棋</router-link>
     <router-link :to="{ path: '/play2' }">play</router-link>
-
+    <router-link :to="{ path: '/Sudoku' }">数独</router-link>
 
   </div>
 </template>

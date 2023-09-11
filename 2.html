@@ -1,12 +1,1098 @@
-<div>
-  <form name="punchout_form" method="post"
-    action="https://openapi-sandbox.dl.alipaydev.com/gateway.do?charset=UTF-8&method=alipay.trade.page.pay&sign=JY9%2Bb%2FvI2Mm7kxXuxzRoY3aq8DjZTBKhymoIizfs%2BMvgALWnUexqNIFTEhxMTtZIHW0%2Bzvhy0ooZC0WZLrj6n0v3Me0IhCh9PV3lv2zq00cavBWD%2F8W1w8oxIe5y0reH2E3USW%2B0C54VGbxAQ8C39tL82YMCXvLjDj%2BtObim%2Bq5g3EDemqk5CMWqPTe8aw%2FBvFp2ySLYIAKuk%2B34foL1SL4tisil%2BYgks6cgkXJRdo8sG7BKfbpHjDlv5yFRtoEJfzXVL0fwPPVQyPAIKjyvFPH7ahsOkt8OMrNBbFnF6PcEcRpVNCoDBUySXH5ryHV%2BDwtFcm6SmqojqaGAwOupCg%3D%3D&notify_url=https%3A%2F%2Fshops.kuaixiaoquan.cn%2FzFB%2FtradeNotify&version=1.0&app_id=9021000122680747&sign_type=RSA2&timestamp=2023-06-06+20%3A29%3A20&alipay_sdk=alipay-sdk-java-dynamicVersionNo&format=json">
-    <input type="hidden" name="biz_content"
-      value="{&quot;out_trade_no&quot;:&quot;B1686054560861666&quot;,&quot;total_amount&quot;:&quot;500&quot;,&quot;subject&quot;:&quot;保证金&quot;,&quot;qr_pay_mode&quot;:&quot;4&quot;,&quot;qrcode_width&quot;:&quot;240&quot;,&quot;product_code&quot;:&quot;FAST_INSTANT_TRADE_PAY&quot;}">\n<input
-      type="submit" value="立即支付" style="display:none"></form>
-  <script>document.forms[0].submit();</script>
-</div>
-<!-- <form name="punchout_form" method="post" action="https://openapi-sandbox.dl.alipaydev.com/gateway.do?charset=UTF-8&method=alipay.trade.page.pay&sign=PzYxOgZr3mFOglr1qxxsfGp31ADVv2t8265nVEmFzjCO7WvoCXL6WtKmhkktZMOW4XJKb8riOgukUeP%2FTgNhijHYgfYuhkJlYuemUtBBK4EqOYlmo5A51tXU5CedoIkYP%2FDFNWCsrNMFb%2F%2BSV2rJ4hXk6cm8GXVgTyv7kwOb60%2Bai%2FVQJyVsygYBA4P2K1696ZlBwK8os4%2F%2BDCPTPbrbUkkJH81vBp4uMvZgm6y7hGL%2FuLytAiW9nkEvF1mzM0TMPenHRBe1JU6ybU103nXyBeMI0r%2Flueljq4ucrxWCouCQZzDDDPr5SbECnqFoFzCUFc6q9IjCtha2YvWQnm8okQ%3D%3D&return_url=https%3A%2F%2Fwww.baidu.com&version=1.0&app_id=9021000122680747&sign_type=RSA2&timestamp=2023-06-02+17%3A42%3A58&alipay_sdk=alipay-sdk-java-dynamicVersionNo&format=json">
-  <input type="hidden" name="biz_content" value="{&quot;out_trade_no&quot;:&quot;20220801113100007&quot;,&quot;product_code&quot;:&quot;FAST_INSTANT_TRADE_PAY&quot;,&quot;subject&quot;:&quot;玛莎拉蒂&quot;,&quot;total_amount&quot;:&quot;100&quot;}">
-  <input type="submit" value="立即支付" style="display:none" >
-  </form> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let row = 9
+    let col = 9
+    let h = [
+      [
+        7,
+        8,
+        6,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        9,
+        4,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        2,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        5,
+        8,
+        3,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        2,
+        6,
+        9,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        4,
+        7,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        4,
+        3
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        7,
+        9
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5,
+        6,
+        8
+      ]
+    ]
+    let s = [
+      [
+        7,
+        9,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        8,
+        4,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        6,
+        5,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        5,
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        8,
+        6,
+        4,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        3,
+        9,
+        7,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        5
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4,
+        7,
+        6
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        9,
+        8
+      ]
+    ]
+    let boxs = [
+      [
+        {
+          "num": 7,
+          "isRight": false,
+          "x": 0,
+          "y": 0,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 8,
+          "isRight": false,
+          "x": 0,
+          "y": 1,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 6,
+          "isRight": false,
+          "x": 0,
+          "y": 2,
+          "canEdit": false,
+          "value": 6
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 0,
+          "y": 3,
+          "canEdit": false,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 0,
+          "y": 4,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 0,
+          "y": 5,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 0,
+          "y": 6,
+          "canEdit": false,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 0,
+          "y": 7,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 0,
+          "y": 8,
+          "canEdit": true,
+          "value": 0
+        }
+      ],
+      [
+        {
+          "num": 9,
+          "isRight": false,
+          "x": 1,
+          "y": 0,
+          "canEdit": false,
+          "value": 9
+        },
+        {
+          "num": 4,
+          "isRight": false,
+          "x": 1,
+          "y": 1,
+          "canEdit": false,
+          "value": 4
+        },
+        {
+          "num": 5,
+          "isRight": false,
+          "x": 1,
+          "y": 2,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 1,
+          "y": 3,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 1,
+          "y": 4,
+          "canEdit": false,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 1,
+          "y": 5,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 1,
+          "y": 6,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 1,
+          "y": 7,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 1,
+          "y": 8,
+          "canEdit": true,
+          "value": 0
+        }
+      ],
+      [
+        {
+          "num": 1,
+          "isRight": false,
+          "x": 2,
+          "y": 0,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 2,
+          "isRight": false,
+          "x": 2,
+          "y": 1,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 3,
+          "isRight": false,
+          "x": 2,
+          "y": 2,
+          "canEdit": false,
+          "value": 3
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 2,
+          "y": 3,
+          "canEdit": false,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 2,
+          "y": 4,
+          "canEdit": false,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 2,
+          "y": 5,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 2,
+          "y": 6,
+          "canEdit": false,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 2,
+          "y": 7,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 2,
+          "y": 8,
+          "canEdit": true,
+          "value": 0
+        }
+      ],
+      [
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 3,
+          "y": 0,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 3,
+          "y": 1,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 3,
+          "y": 2,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 5,
+          "isRight": false,
+          "x": 3,
+          "y": 3,
+          "canEdit": false,
+          "value": 5
+        },
+        {
+          "num": 8,
+          "isRight": false,
+          "x": 3,
+          "y": 4,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 3,
+          "isRight": false,
+          "x": 3,
+          "y": 5,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 3,
+          "y": 6,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 3,
+          "y": 7,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 3,
+          "y": 8,
+          "canEdit": true,
+          "value": 0
+        }
+      ],
+      [
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 4,
+          "y": 0,
+          "canEdit": false,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 4,
+          "y": 1,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 4,
+          "y": 2,
+          "canEdit": false,
+          "value": 0
+        },
+        {
+          "num": 2,
+          "isRight": false,
+          "x": 4,
+          "y": 3,
+          "canEdit": false,
+          "value": 2
+        },
+        {
+          "num": 6,
+          "isRight": false,
+          "x": 4,
+          "y": 4,
+          "canEdit": false,
+          "value": 6
+        },
+        {
+          "num": 9,
+          "isRight": false,
+          "x": 4,
+          "y": 5,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 4,
+          "y": 6,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 4,
+          "y": 7,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 4,
+          "y": 8,
+          "canEdit": false,
+          "value": 0
+        }
+      ],
+      [
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 5,
+          "y": 0,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 5,
+          "y": 1,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 5,
+          "y": 2,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 1,
+          "isRight": false,
+          "x": 5,
+          "y": 3,
+          "canEdit": false,
+          "value": 1
+        },
+        {
+          "num": 4,
+          "isRight": false,
+          "x": 5,
+          "y": 4,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 7,
+          "isRight": false,
+          "x": 5,
+          "y": 5,
+          "canEdit": false,
+          "value": 7
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 5,
+          "y": 6,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 5,
+          "y": 7,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 5,
+          "y": 8,
+          "canEdit": false,
+          "value": 0
+        }
+      ],
+      [
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 6,
+          "y": 0,
+          "canEdit": false,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 6,
+          "y": 1,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 6,
+          "y": 2,
+          "canEdit": false,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 6,
+          "y": 3,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 6,
+          "y": 4,
+          "canEdit": false,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 6,
+          "y": 5,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 1,
+          "isRight": false,
+          "x": 6,
+          "y": 6,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 4,
+          "isRight": false,
+          "x": 6,
+          "y": 7,
+          "canEdit": false,
+          "value": 4
+        },
+        {
+          "num": 3,
+          "isRight": false,
+          "x": 6,
+          "y": 8,
+          "canEdit": true,
+          "value": 0
+        }
+      ],
+      [
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 7,
+          "y": 0,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 7,
+          "y": 1,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 7,
+          "y": 2,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 7,
+          "y": 3,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 7,
+          "y": 4,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 7,
+          "y": 5,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 2,
+          "isRight": false,
+          "x": 7,
+          "y": 6,
+          "canEdit": false,
+          "value": 2
+        },
+        {
+          "num": 7,
+          "isRight": false,
+          "x": 7,
+          "y": 7,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 9,
+          "isRight": false,
+          "x": 7,
+          "y": 8,
+          "canEdit": true,
+          "value": 0
+        }
+      ],
+      [
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 8,
+          "y": 0,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 8,
+          "y": 1,
+          "canEdit": false,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 8,
+          "y": 2,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 8,
+          "y": 3,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 8,
+          "y": 4,
+          "canEdit": true,
+          "value": 0
+        },
+        {
+          "num": 0,
+          "isRight": false,
+          "x": 8,
+          "y": 5,
+          "canEdit": false,
+          "value": 0
+        },
+        {
+          "num": 5,
+          "isRight": false,
+          "x": 8,
+          "y": 6,
+          "canEdit": false,
+          "value": 5
+        },
+        {
+          "num": 6,
+          "isRight": false,
+          "x": 8,
+          "y": 7,
+          "canEdit": false,
+          "value": 6
+        },
+        {
+          "num": 8,
+          "isRight": false,
+          "x": 8,
+          "y": 8,
+          "canEdit": true,
+          "value": 0
+        }
+      ]
+    ]
+    for (let i = 0; i < row; i++) {
+      for (let j = 0; j < col; j++) {
+        if ((i < 3 && j >= 3) || (i < 6 && i > 2 && (j >= 6 || j <= 2)) || (i < 9 && i > 5 && j <= 5)) {
+          let can = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+          can = can.filter(item => !h[i].includes(item) && !s[j].includes(item))
+          const tempi = i
+          const tempj = j
+          let num = randomNum(i, j, h[i], s[j], can)
+          while (num === 'j') {
+            if (j === 0 || j === 3 || j === 6) {
+              j += 2
+              i--
+            } else
+              j--
+            if (j < 0 || i < 0) {
+              i = tempi
+              j = tempj
+              break
+            }
+            can = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+            can = can.filter(item => !h[i].includes(item) && !s[j].includes(item))
+            num = randomNum(i, j, h[i], s[j], can)
+
+          }
+          if (!isNaN(boxs[i]?.[j]?.num)) {
+            boxs[i][j].num = num
+            h[i][j] = num
+            s[j][i] = num
+          }
+
+          console.log(i, j, num, 'i,j')
+        }
+      }
+    }
+
+
+    function randomNum(i, j, h, s, can = [1, 2, 3, 4, 5, 6, 7, 8, 9]) {
+
+      const random = can[Math.floor(Math.random() * can.length)]
+      if (!h || !s) return
+      console.log(i, j, h, s, can, 'i,j,h,s,can', boxs, random)
+      if (h.includes(random)) {
+        can = can.filter(item => item !== random)
+        if (can.length === 0) {
+          return 'j'
+        }
+        return randomNum(i, j, h, s, can)
+      } else if (s.includes(random)) {
+        can = can.filter(item => item !== random)
+        if (can.length === 0) {
+          return 'j'
+        }
+        return randomNum(i, j, h, s, can)
+      }
+      //九宫格
+      let hasNum = false
+      if ([0, 1, 2].indexOf(i) > -1) {
+        if ([0, 1, 2].indexOf(j) > -1) {
+          for (let x = 0; x < 3; x++) {
+            for (let y = 0; y < 3; y++) {
+              if (boxs[x]?.[y]?.num === random) {
+                can = can.filter(item => item !== random)
+                hasNum = true
+                x = i
+                y = j
+                if (can.length === 0) {
+                  return 'j'
+                }
+                return randomNum(i, j, h, s, can)
+              }
+            }
+          }
+        } else if ([3, 4, 5].indexOf(j) > -1) {
+          for (let x = 0; x < 3; x++) {
+            for (let y = 3; y < 6; y++) {
+              if (boxs[x]?.[y]?.num === random) {
+                can = can.filter(item => item !== random)
+                hasNum = true
+                x = i
+                y = j
+                if (can.length === 0) {
+                  return 'j'
+                }
+
+                return randomNum(i, j, h, s, can)
+              }
+            }
+          }
+        } else if ([6, 7, 8].indexOf(j) > -1) {
+          for (let x = 0; x < 3; x++) {
+            for (let y = 6; y < 9; y++) {
+              if (boxs[x]?.[y]?.num === random) {
+                can = can.filter(item => item !== random)
+                hasNum = true
+                x = i
+                y = j
+                if (can.length === 0) {
+                  return 'j'
+                }
+
+                return randomNum(i, j, h, s, can)
+              }
+            }
+          }
+        }
+      } else if ([3, 4, 5].indexOf(i) > -1) {
+        if ([0, 1, 2].indexOf(j) > -1) {
+          for (let x = 3; x < 6; x++) {
+            for (let y = 0; y < 3; y++) {
+              if (boxs[x]?.[y]?.num === random) {
+                can = can.filter(item => item !== random)
+                hasNum = true
+                x = i
+                y = j
+                if (can.length === 0) {
+                  return 'j'
+                }
+
+                return randomNum(i, j, h, s, can)
+              }
+            }
+          }
+        } else if ([3, 4, 5].indexOf(j) > -1) {
+          for (let x = 3; x < 6; x++) {
+            for (let y = 3; y < 6; y++) {
+              if (boxs[x]?.[y]?.num === random) {
+                can = can.filter(item => item !== random)
+                hasNum = true
+                x = i
+                y = j
+                if (can.length === 0) {
+                  return 'j'
+                }
+
+                return randomNum(i, j, h, s, can)
+              }
+            }
+          }
+        } else if ([6, 7, 8].indexOf(j) > -1) {
+          for (let x = 3; x < 6; x++) {
+            for (let y = 6; y < 9; y++) {
+              if (boxs[x]?.[y]?.num === random) {
+                can = can.filter(item => item !== random)
+                hasNum = true
+                x = i
+                y = j
+                if (can.length === 0) {
+                  return 'j'
+                }
+
+                return randomNum(i, j, h, s, can)
+              }
+            }
+          }
+        }
+      } else if ([6, 7, 8].indexOf(i) > -1) {
+        if ([0, 1, 2].indexOf(j) > -1) {
+          for (let x = 6; x < 9; x++) {
+            for (let y = 0; y < 3; y++) {
+              if (boxs[x]?.[y]?.num === random) {
+                can = can.filter(item => item !== random)
+                hasNum = true
+                x = i
+                y = j
+                if (can.length === 0) {
+                  return 'j'
+                }
+
+                return randomNum(i, j, h, s, can)
+              }
+            }
+          }
+        } else if ([3, 4, 5].indexOf(j) > -1) {
+          for (let x = 6; x < 9; x++) {
+            for (let y = 3; y < 6; y++) {
+              if (boxs[x]?.[y]?.num === random) {
+                can = can.filter(item => item !== random)
+                hasNum = true
+                x = i
+                y = j
+                if (can.length === 0) {
+                  return 'j'
+                }
+
+                return randomNum(i, j, h, s, can)
+              }
+            }
+          }
+        } else if ([6, 7, 8].indexOf(j) > -1) {
+          for (let x = 6; x < 9; x++) {
+            for (let y = 6; y < 9; y++) {
+              if (boxs[x]?.[y]?.num === random) {
+                can = can.filter(item => item !== random)
+                hasNum = true
+                x = i
+                y = j
+                if (can.length === 0) {
+                  return 'j'
+                }
+
+                return randomNum(i, j, h, s, can)
+              }
+            }
+          }
+        }
+
+      }
+      if (!hasNum) {
+        return random
+      }
+    }
+  </script>
+</body>
+
+</html>

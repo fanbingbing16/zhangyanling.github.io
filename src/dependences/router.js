@@ -16,6 +16,7 @@ import game2048 from '../components/2048Game'
 import mineDlearance from '../components/mineDlearance'
 import gobang from '../components/gobang'
 import play from '../components/play'
+import Sudoku from '../components/Sudoku'
 export const routes = [
   {
     path: '/', redirect: '/HelloWorld', component: App,
@@ -80,6 +81,10 @@ export const routes = [
   {
     path: '/', redirect: '/play2', component: App,
     children: [{ path: '/play2', component: play }]
+  },
+  {
+    path: '/', redirect: '/Sudoku', component: App,
+    children: [{ path: '/Sudoku', component: Sudoku }]
   }
   
 ]
