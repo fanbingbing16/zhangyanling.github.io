@@ -17,6 +17,8 @@ import mineDlearance from '../components/mineDlearance'
 import gobang from '../components/gobang'
 import play from '../components/play'
 import Sudoku from '../components/Sudoku'
+import huarongRoad from '../components/huarongRoad'
+import xiaoxiaole from '../components/xiaoxiaole'
 export const routes = [
   {
     path: '/', redirect: '/HelloWorld', component: App,
@@ -85,6 +87,14 @@ export const routes = [
   {
     path: '/', redirect: '/Sudoku', component: App,
     children: [{ path: '/Sudoku', component: Sudoku }]
+  },
+  {
+    path: '/', redirect: '/huarongRoad', component: App,
+    children: [{ path: '/huarongRoad', component: huarongRoad }]
+  },
+  {
+    path: '/', redirect: '/xiaoxiaole', component: App,
+    children: [{ path: '/xiaoxiaole', component: xiaoxiaole }]
   }
-  
+
 ]

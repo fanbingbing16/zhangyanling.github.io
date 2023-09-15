@@ -15,7 +15,6 @@ export default {
   props: ["width", "height",'options'],
   setup(props) {
     let myEcharts = echarts;
-console.log(props,'pros')
     onMounted(() => {
       initChart();
     });

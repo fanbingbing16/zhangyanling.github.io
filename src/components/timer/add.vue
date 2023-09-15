@@ -62,9 +62,7 @@ export default {
     visible(newVal) {
       this.visibleOne = newVal
     },
-    visibleTip(newVal){
-      console.log(newVal,'newVal visibleTip')
-    }
+   
   },
   methods: {
     //增加计时器

@@ -114,7 +114,6 @@ export default {
       }
 
 
-      console.log(boxs.value, 'boxs', mine.value)
     }
     function clickBox(box) {
       if (box.isFlag) {

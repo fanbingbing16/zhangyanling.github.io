@@ -1,9 +1,21 @@
 <template>
   <div class="Sudoku">
     <div class="button-list">
-      <el-button @click="changeRandom(0.3)" :type="random===0.3?'primary':''">简单</el-button>
-      <el-button @click="changeRandom(0.5)" :type="random===0.5?'primary':''">中等</el-button>
-      <el-button @click="changeRandom(0.7)" :type="random===0.7?'primary':''">困难</el-button>
+      <el-button
+        @click="changeRandom(0.3)"
+        :type="random === 0.3 ? 'primary' : ''"
+        >简单</el-button
+      >
+      <el-button
+        @click="changeRandom(0.5)"
+        :type="random === 0.5 ? 'primary' : ''"
+        >中等</el-button
+      >
+      <el-button
+        @click="changeRandom(0.7)"
+        :type="random === 0.7 ? 'primary' : ''"
+        >困难</el-button
+      >
     </div>
     <div class="game-main">
       <div class="game" v-for="(item, index) in boxs" :key="index">
@@ -16,7 +28,7 @@
             'border-bottom': [2, 5, 8].includes(index) ? '2px solid green' : '',
             'border-right': index2 === 8 ? '2px solid green' : '',
             'border-top': index === 0 ? '2px solid green' : '',
-            background: box.red ? 'red' : '',
+            background: box.red ? 'red' : (box.canEdit&&box.value>0?'green':''),
           }"
         >
           <span v-if="!box.canEdit">{{ box.value > 0 ? box.value : "" }}</span>
@@ -56,7 +68,7 @@ export default {
     const random = ref(0.3)
     const visible = ref(false)
     const tip = ref('')
-    function changeRandom(random2){
+    function changeRandom(random2) {
       random.value = random2
       init()
     }
@@ -65,21 +77,24 @@ export default {
       boxs.value = []
       const s = [[], [], [], [], [], [], [], [], []]
       const h = []
+      let data = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+      data.sort(() => Math.random() - 0.5)
       for (let i = 0; i < row.value; i++) {
         h.push([])
         boxs.value.push([])
         for (let j = 0; j < col.value; j++) {
           boxs.value[i].push({ num: 0, isRight: false, x: i, y: j, canEdit: true, value: 0, red: false })
           if ((j < 3 && (i === 0 || i === 3 || i === 6)) || (j >= 3 && j <= 5 && (i === 2 || i === 4 || i === 8)) || (j >= 6 && (i === 5 || i === 1 || i === 7))) {
-            let temp = [1, 2, 3]
+            let temp = [...data.slice(0, 3)]
             temp = temp.filter(item => !s[j].includes(item))
             temp = temp.filter(item => !h[i].includes(item))
 
             temp.sort(() => {
               return Math.random() - 0.5
             })
+
             if (temp.length === 0) {
-              const temp2 = [1, 2, 3].filter(item => !h[i].includes(item))
+              const temp2 = [...data.slice(0, 3)].filter(item => !h[i].includes(item))
               temp[0] = boxs.value[i][j - 1].num
               boxs.value[i][j - 1].num = temp2[0]
               s[j - 1][i] = temp2[0]
@@ -91,16 +106,15 @@ export default {
             s[j][i] = temp[0]
             h[i][j] = temp[0]
           } else if ((j < 3 && (i === 1 || i === 5 || i === 7)) || (j >= 3 && j <= 5 && (i === 0 || i === 3 || i === 6)) || (j >= 6 && (i === 2 || i === 4 || i === 8))) {
-            let temp = [4, 5, 6]
+            let temp = [...data.slice(3, 6)]
             temp = temp.filter(item => !s[j].includes(item))
             temp = temp.filter(item => !h[i].includes(item))
 
             temp.sort(() => {
               return Math.random() - 0.5
             })
-
             if (temp.length === 0) {
-              const temp2 = [4, 5, 6].filter(item => !h[i].includes(item))
+              const temp2 = [...data.slice(3,6)].filter(item => !h[i].includes(item))
               temp[0] = boxs.value[i][j - 1].num
               boxs.value[i][j - 1].num = temp2[0]
               s[j - 1][i] = temp2[0]
@@ -112,7 +126,7 @@ export default {
             s[j][i] = temp[0]
             h[i][j] = temp[0]
           } else {
-            let temp = [7, 8, 9]
+            let temp = [...data.slice(6)]
             temp = temp.filter(item => !s[j].includes(item))
             temp = temp.filter(item => !h[i].includes(item))
 
@@ -121,7 +135,7 @@ export default {
             })
 
             if (temp.length === 0) {
-              const temp2 = [7, 8, 9].filter(item => !h[i].includes(item))
+              const temp2 = [...data.slice(6)].filter(item => !h[i].includes(item))
               temp[0] = boxs.value[i][j - 1].num
               boxs.value[i][j - 1].num = temp2[0]
 

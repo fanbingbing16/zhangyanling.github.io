@@ -11,15 +11,17 @@
     <!-- <router-link :to="{ path: '/computer' }">计算器</router-link>  -->
     <router-link :to="{ path: '/tianqi' }">天气预报</router-link>
     <router-link :to="{ path: '/triangle' }">在线图形生成器</router-link>
+    <router-link :to="{ path: '/play2' }">play</router-link>
+<!-- 密码生成器 -->
     <!-- vue小游戏 -->
     <router-link :to="{ path: '/blockBreaker' }">打砖块</router-link>
     <router-link :to="{ path: '/tetris' }">俄罗斯方块</router-link>
     <router-link :to="{ path: '/2048' }">2048</router-link>
     <router-link :to="{ path: '/mineDlearance' }">扫雷</router-link>
     <router-link :to="{ path: '/gobang' }">五子棋</router-link>
-    <router-link :to="{ path: '/play2' }">play</router-link>
     <router-link :to="{ path: '/Sudoku' }">数独</router-link>
-
+    <router-link :to="{ path: '/huarongRoad' }">华容道</router-link>
+    <router-link :to="{ path: '/xiaoxiaole' }">消消乐(三种玩法)</router-link>
   </div>
 </template>
 <style lang="scss" scoped>

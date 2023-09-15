@@ -67,7 +67,6 @@ export default {
         } else if (e1 && e1.key === 'ArrowDown') {
           moveDown()
         }
-        console.log(boxs.value, 'boxs',visible.value,tip.value)
       }
     }
     function moveLeft() {
@@ -215,7 +214,6 @@ export default {
           }
         }
       }
-      console.log(num,num >= row.value * col.value,'num >= row.value * col.value',row.value * col.value)
        if (num >= row.value * col.value) {
         tip.value = '您输了'
         visible.value = true

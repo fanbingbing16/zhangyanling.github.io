@@ -39,12 +39,13 @@
     </div>
     <!-- 控制台 -->
     <div class="control">
-      <el-button @click="changeBox">变换</el-button>
-      <div class="control-center">
+      <!-- <el-button @click="changeBox">变换</el-button> -->
+      <!-- <div class="control-center">
         <el-button @click="moveLeft">向左</el-button>
         <el-button @click="moveRight">向右</el-button>
       </div>
-      <el-button @click="moveDown">向下</el-button>
+      <el-button @click="moveDown">向下</el-button> -->
+      <p>说明：上下左右键控制游戏，左右健控制方块移动，下键加快下移的速度，上键变换</p>
     </div>
     <dialog-vue dialogTitle="提示" v-model:visible="visible">
       <template v-slot:body>
