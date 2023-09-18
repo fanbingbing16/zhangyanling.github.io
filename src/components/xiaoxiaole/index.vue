@@ -40,15 +40,16 @@
         <div class="game">
           <div
             class="game-div"
-            v-for="(item, index) in new Array(3)"
+            v-for="(item, index) in ['连线消除','翻牌消除','交换消除']"
             @click="
               level = index + 1;
               init();
               visible2 = false;
             "
+            style="width:100px;"
             :key="index"
           >
-            {{ index + 1 }}
+            {{ item }}
           </div>
         </div>
       </template>
@@ -65,7 +66,7 @@ export default {
   setup() {
     const row = ref(10)
     const col = ref(10)
-    const level = ref(2)
+    const level = ref(3)
     const boxs = ref([[{ i: 0, j: 0, bg: '', click: false, bei: false }]])
     const clicks = ref([{ i: 0, j: 0, bg: '', click: false, bei: false }])
     const tip = ref('')
@@ -103,24 +104,130 @@ export default {
       }
       init()
     }
+    function validateSame(box, set = new Set(), time = 0) {
+      if (set.has(box.i * row.value + box.j)) {
+        return { set, time }
+      }
+      set.add(box.i * row.value + box.j)
+      time++
+      console.log(box, set, time, 'box,set time', box.bg)
+      if (box.bg) {
+        if (boxs.value[box.i + 1]?.[box.j].bg === box.bg && !set.has((box.i + 1) * row.value + box.j)) {
+
+          validateSame(boxs.value[box.i + 1]?.[box.j], set, time)
+        }
+        if (boxs.value[box.i]?.[box.j + 1]?.bg === box.bg && !set.has((box.i) * row.value + box.j + 1)) {
+          validateSame(boxs.value[box.i]?.[box.j + 1], set, time)
+
+        }
+        if (boxs.value[box.i - 1]?.[box.j]?.bg === box.bg && !set.has((box.i - 1) * row.value + box.j)) {
+          validateSame(boxs.value[box.i + -1]?.[box.j], set, time)
+
+        }
+        if (boxs.value[box.i]?.[box.j - 1]?.bg === box.bg && !set.has((box.i) * row.value + box.j - 1)) {
+          validateSame(boxs.value[box.i]?.[box.j - 1], set, time)
+
+        }
+
+      }
+      return { set, time }
+    }
     function clickItem(box) {
+      if (level.value === 3 && box.bg) {
+
+        if (clicks.value.length <= 0) {
+          boxs.value[box.i][box.j].click = true
+          clicks.value.push(boxs.value[box.i][box.j])
+
+        } else {
+          if (box.i === clicks.value[0].i && box.j === clicks.value[0].j) {
+            clicks.value = []
+            boxs.value[box.i][box.j].click = false
+            return
+          }
+          if (clicks.value[0].bg === box.bg) {
+            boxs.value[box.i][box.j].click = false
+            boxs.value[clicks.value[0].i][clicks.value[0].j].click = false
+            clicks.value = []
+            return
+          }
+          let temp = boxs.value[box.i][box.j].bg
+          boxs.value[box.i][box.j].bg = clicks.value[0].bg
+          boxs.value[clicks.value[0].i][clicks.value[0].j].bg = temp
+          boxs.value[clicks.value[0].i][clicks.value[0].j].click = false
+          const temp1 = validateSame(box)
+          const temp2 = validateSame(clicks.value[0])
+
+          if (temp1.set.size >= 3) {
+            temp1.set.forEach(item => {
+              const i = Math.floor(item / row.value)
+              const j = item % row.value
+              boxs.value[i][j].bg = ''
+            })
+          }
+          if (temp2.set.size >= 3) {
+            temp2.set.forEach(item => {
+              const i = Math.floor(item / row.value)
+              const j = item % row.value
+              boxs.value[i][j].bg = ''
+            })
+          }
+          //如果无法消除，需要再调回去
+          if (temp1.set.size < 3 && temp2.set.size < 3) {
+            let temp = boxs.value[box.i][box.j].bg
+            boxs.value[box.i][box.j].bg = clicks.value[0].bg
+            boxs.value[clicks.value[0].i][clicks.value[0].j].bg = temp
+          } else {
+            for (let i = row.value - 1; i >= 0; i--) {
+              for (let j = 0; j < col.value; j++) {
+                if (boxs.value[i][j].bg === '') {
+                  for (let x = i; x >= 0; x--) {
+                    if (boxs.value[x][j].bg !== '') {
+                      boxs.value[i][j].bg = boxs.value[x][j].bg
+                      boxs.value[x][j].bg = ''
+                      x = -1
+                      break
+                    }
+                  }
+                }
+              }
+            }
+          }
+          // let tempClick = { ...clicks.value[0] }
+          clicks.value = []
+        }
+        let times = 0
+        boxs.value.map(item => {
+          item.map(element => {
+            if (element.bg === '') {
+              times++
+            }
+          })
+        })
+        if (times >= row.value * col.value) {
+          //赢了
+          tip.value = '恭喜您赢得了比赛'
+          visible.value = true
+        }
+        return
+      }
       if (level.value === 2) {
         if (box.bei) {
           boxs.value[box.i][box.j].bei = false
-          if(clicks.value.length===1){
-            if(clicks.value[0].bg ===box.bg){
+          if (clicks.value.length === 1) {
+            if (clicks.value[0].bg === box.bg) {
               clicks.value.push(boxs.value[box.i][box.j])
               return xiao()
-            }else{
+            } else {
               boxs.value[clicks.value[0].i][clicks.value[0].j].bei = true
               clicks.value = [boxs.value[box.i][box.j]]
               return
             }
-          }else if(clicks.value.length===0){
+          } else if (clicks.value.length === 0) {
             clicks.value = [boxs.value[box.i][box.j]]
             return
-          }else{
-            clicks.value.map(item=>{
+          } else {
+            clicks.value.map(item => {
               boxs.value[item.i][item.j].bei = true
             })
             clicks.value = [boxs.value[box.i][box.j]]

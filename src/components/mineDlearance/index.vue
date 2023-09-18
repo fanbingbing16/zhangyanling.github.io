@@ -132,7 +132,7 @@ export default {
           tip.value = '您输了'
           visible.value = true
         } else if (boxs.value[box.x][box.y].num === 0) {
-          //旁边是0的也全部点开，0的旁边只要不是炸弹也点开
+          //旁边是0的也全部点开，0的旁边只要不是炸弹也点开,（旁边没有0，但是不是雷的点开）
           changeClick([box.x, box.y])
         }
       }
