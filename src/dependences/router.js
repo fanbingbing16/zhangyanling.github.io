@@ -19,6 +19,8 @@ import play from '../components/play'
 import Sudoku from '../components/Sudoku'
 import huarongRoad from '../components/huarongRoad'
 import xiaoxiaole from '../components/xiaoxiaole'
+import randomPass from '../components/randomPass'
+
 export const routes = [
   {
     path: '/', redirect: '/HelloWorld', component: App,
@@ -95,6 +97,10 @@ export const routes = [
   {
     path: '/', redirect: '/xiaoxiaole', component: App,
     children: [{ path: '/xiaoxiaole', component: xiaoxiaole }]
+  },
+  {
+    path: '/', redirect: '/randomPass', component: App,
+    children: [{ path: '/randomPass', component: randomPass }]
   }
-
+  
 ]
