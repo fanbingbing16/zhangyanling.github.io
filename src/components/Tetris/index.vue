@@ -88,6 +88,10 @@ export default {
     this.init()
 this.keyDown()
   },
+  onUnmounted(){
+    clearInterval(this.inter)
+    this.inter = null
+  },
   methods: {
     keyDown() {
       document.onkeydown = (e) => {

@@ -66,7 +66,7 @@ export default {
   setup() {
     const row = ref(10)
     const col = ref(10)
-    const level = ref(3)
+    const level = ref(1)
     const boxs = ref([[{ i: 0, j: 0, bg: '', click: false, bei: false }]])
     const clicks = ref([{ i: 0, j: 0, bg: '', click: false, bei: false }])
     const tip = ref('')

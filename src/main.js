@@ -6,7 +6,7 @@ import routesHospital from './dependences/routerMy';
 import axios from 'axios'
 import ElementPlus from 'element-plus'
 import 'element-plus/theme-chalk/index.css'
-
+import 'github-markdown-css';
 import { routes } from './dependences/router';
 const router = createRouter({
   history: createWebHashHistory(),

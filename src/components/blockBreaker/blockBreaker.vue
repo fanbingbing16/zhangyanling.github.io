@@ -131,6 +131,7 @@ export default {
       this.inter = setInterval(() => {
         this.leftBall += this.x
         this.topBall += this.y
+        console.log(1111)
         document.getElementsByClassName('ball')[0].style.marginLeft = this.leftBall + 'px'
         document.getElementsByClassName('ball')[0].style.marginTop = this.topBall + 'px'
         const clientBall = document.getElementsByClassName('ball')[0]?.getBoundingClientRect()
@@ -190,10 +191,11 @@ export default {
       }, 100)
     }
   },
-  destroyed() {
+  onUnmounted (){
+
     clearInterval(this.inter)
     this.inter = null
-  }
+  },
 }
 </script>
 <style lang="scss" scoped>

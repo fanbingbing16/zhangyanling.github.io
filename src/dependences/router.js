@@ -20,6 +20,7 @@ import Sudoku from '../components/Sudoku'
 import huarongRoad from '../components/huarongRoad'
 import xiaoxiaole from '../components/xiaoxiaole'
 import randomPass from '../components/randomPass'
+import myProjet from '../components/markdown/vue'
 
 export const routes = [
   {
@@ -101,6 +102,10 @@ export const routes = [
   {
     path: '/', redirect: '/randomPass', component: App,
     children: [{ path: '/randomPass', component: randomPass }]
+  },
+  {
+    path: '/', redirect: '/myProjet', component: App,
+    children: [{ path: '/myProjet', component: myProjet }]
   }
   
 ]
