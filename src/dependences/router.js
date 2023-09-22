@@ -21,7 +21,7 @@ import huarongRoad from '../components/huarongRoad'
 import xiaoxiaole from '../components/xiaoxiaole'
 import randomPass from '../components/randomPass'
 import myProjet from '../components/markdown/vue'
-
+import typewriting from '../components/typewriting'
 export const routes = [
   {
     path: '/', redirect: '/HelloWorld', component: App,
@@ -104,8 +104,12 @@ export const routes = [
     children: [{ path: '/randomPass', component: randomPass }]
   },
   {
-    path: '/', redirect: '/myProjet', component: App,
-    children: [{ path: '/myProjet', component: myProjet }]
+    path: '/', redirect: '/myProject', component: App,
+    children: [{ path: '/myProject', component: myProjet }]
+  },
+  {
+    path: '/', redirect: '/typewriting', component: App,
+    children: [{ path: '/typewriting', component: typewriting }]
   }
   
 ]

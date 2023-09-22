@@ -23,6 +23,8 @@
     <router-link :to="{ path: '/Sudoku' }">数独</router-link>
     <router-link :to="{ path: '/huarongRoad' }">华容道</router-link>
     <router-link :to="{ path: '/xiaoxiaole' }">消消乐(三种玩法)</router-link>
+    <router-link :to="{ path: '/typewriting' }">打字游戏</router-link>
+
   </div>
 </template>
 <style lang="scss" scoped>
