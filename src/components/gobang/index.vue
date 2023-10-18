@@ -782,6 +782,7 @@ export default {
 
     //验证是否赢了
     function validateWin() {
+      if(visible.value) return
       for (let i = 0; i < row.value; i++) {
 
         for (let j = 0; j < col.value; j++) {

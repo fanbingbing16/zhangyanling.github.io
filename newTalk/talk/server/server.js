@@ -8,9 +8,9 @@ let data = []
 var connection = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "1111",
+    password: "root",
     database: "hospital",
-    timezone: "08:00"
+    timezone: "08:00",port: '3308'
 })//连接数据库
 connection.connect()
 connection.query('select * from userTalk', [], function (err, result) {

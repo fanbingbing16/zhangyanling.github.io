@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main">
     <!-- css -->
     <router-link :to="{ path: '/helloKitty' }">helloKitty</router-link>
     <router-link :to="{ path: '/duolam' }">哆啦a梦</router-link>
@@ -24,11 +24,19 @@
     <router-link :to="{ path: '/huarongRoad' }">华容道</router-link>
     <router-link :to="{ path: '/xiaoxiaole' }">消消乐(三种玩法)</router-link>
     <router-link :to="{ path: '/typewriting' }">打字游戏</router-link>
-
   </div>
 </template>
 <style lang="scss" scoped>
+.main {
+  background-image: url("../assets/bg.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100%;
+  width: 100%;
+}
 a {
   margin-left: 10px;
+  color: white;
 }
 </style>
