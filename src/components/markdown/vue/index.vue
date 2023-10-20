@@ -23,9 +23,12 @@ export default {
   box-sizing: border-box;
   :deep h1 {
     text-align: left;
+    color:red
+    ;
   }
   :deep h2 {
     text-align: left;
+
   }
   :deep h3 {
     text-align: left;

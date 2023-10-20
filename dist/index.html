@@ -1,1 +1,61 @@
-<!doctype html><html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico"><title>editor</title><script defer="defer" src="/js/chunk-vendors.8fa76f74.js"></script><script defer="defer" src="/js/app.618949bb.js"></script><link href="/css/chunk-vendors.27f36a0c.css" rel="stylesheet"><link href="/css/app.6fe13b86.css" rel="stylesheet"></head><body><noscript><strong>We're sorry but editor doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div></body></html>
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><meta name="renderer" content="webkit"/><meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0"/><title>myWeb</title><link rel="icon" href="/favicon.ico"/><script>window.process = {};</script><script defer="defer" src="/js/chunk-vendors.15fd005f.js"></script><script defer="defer" src="/js/app.8628af53.js"></script><link href="/css/chunk-vendors.27f36a0c.css" rel="stylesheet"><link href="/css/app.fd4d9efd.css" rel="stylesheet"></head><body><div id="app"><style>html,
+        body,
+        #app {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          position: relative;
+          justify-content: center;
+          align-items: center;
+          overflow: hidden;
+        }
+
+        .loader,
+        .loader:before,
+        .loader:after {
+          border-radius: 50%;
+          width: 2.5em;
+          height: 2.5em;
+          animation-fill-mode: both;
+          animation: loadAnimation 1.8s infinite ease-in-out;
+        }
+
+        .loader {
+          color: #406eeb;
+          font-size: 10px;
+          margin: 80px auto;
+          position: relative;
+          text-indent: -9999em;
+          transform: translateZ(0);
+          animation-delay: -0.16s;
+          top: 0;
+          transform: translate(-50%, 0);
+        }
+
+        .loader:before,
+        .loader:after {
+          content: "";
+          position: absolute;
+          top: 0;
+        }
+
+        .loader:before {
+          left: -3.5em;
+          animation-delay: -0.32s;
+        }
+
+        .loader:after {
+          left: 3.5em;
+        }
+
+        @keyframes loadAnimation {
+          0%,
+          80%,
+          100% {
+            box-shadow: 0 2.5em 0 -1.3em;
+          }
+
+          40% {
+            box-shadow: 0 2.5em 0 0;
+          }
+        }</style><div class="loader"></div></div></body></html>

@@ -132,8 +132,11 @@ export default {
         this.leftBall += this.x
         this.topBall += this.y
         console.log(1111)
-        document.getElementsByClassName('ball')[0].style.marginLeft = this.leftBall + 'px'
-        document.getElementsByClassName('ball')[0].style.marginTop = this.topBall + 'px'
+        if (document.getElementsByClassName('ball')[0]) {
+          document.getElementsByClassName('ball')[0].style.marginLeft = this.leftBall + 'px'
+          document.getElementsByClassName('ball')[0].style.marginTop = this.topBall + 'px'
+        }
+
         const clientBall = document.getElementsByClassName('ball')[0]?.getBoundingClientRect()
         const clickBall = this.boxs.some((item, index) => {
           if (clientBall?.top >= item?.top && clientBall?.top <= item?.top + item?.height) {
@@ -191,7 +194,7 @@ export default {
       }, 100)
     }
   },
-  onUnmounted (){
+  onUnmounted() {
 
     clearInterval(this.inter)
     this.inter = null
