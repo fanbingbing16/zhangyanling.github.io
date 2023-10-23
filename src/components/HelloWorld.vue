@@ -1,9 +1,12 @@
 <template>
   <div class="main">
     <h1>欢迎您进入我的个人网站</h1>
-    <div class="card-list m-t-20">
+    <div class="card-list m-t-40">
       <div class="card" @click="$router.push('/myProject')">
         <p>个人项目</p>
+      </div>
+      <div class="card m-t-30" @click="$router.push('/myProject')">
+        <p>公司项目</p>
       </div>
     </div>
 
@@ -49,7 +52,9 @@
   .card-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
     .card {
       cursor: pointer;
       width: 30%;

@@ -1,36 +1,29 @@
 <template>
   <div id="app2">
-    <router-view></router-view>
+    <router-view ></router-view>
+    <loves ref="background"></loves>
   </div>
 </template>
 
 <script>
+import loves from './components/loves.vue'
 export default {
   name: 'App',
   components: {
+    loves
   },
-  data(){
-    return{
-      show:true
+  data() {
+    return {
+      show: true
     }
   },
-  created(){
-    // let time = 0
-    // const inter = setInterval(()=>{
-    //   const app2 = document.getElementById('app2')
-    //   console.log(app2,'app2',app2.children,app2.children.length)
-    //   time++
-    //   if(app2.children.length>=2){
-    //     clearInterval(inter)
-    //     this.show = false
-    //   }
-    //   if(time>=15000){
-    //     clearInterval(inter)
-    //   this.show = false
-    //   }
-    // },200)
-  }
+  created() {
 
+  },
+  methods: {
+   
+   
+  }
 }
 </script>
 
@@ -39,6 +32,7 @@ html {
   height: 100%;
   width: 100%;
 }
+
 body {
   margin: 0;
   height: 100%;
@@ -46,6 +40,7 @@ body {
   padding: 0;
   /* margin-top: -60px; */
 }
+
 #app2 {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -60,11 +55,12 @@ body {
   box-sizing: border-box;
   padding: 1px;
 }
+
 div#app {
   height: 100%;
 }
+
 html {
   overflow-x: hidden; //隐藏水平滚动条
   overflow-y: hidden; //隐藏垂直滚动条
-}
-</style>
+}</style>
