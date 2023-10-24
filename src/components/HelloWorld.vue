@@ -5,7 +5,7 @@
       <div class="card" @click="$router.push('/myProject')">
         <p>个人项目</p>
       </div>
-      <div class="card m-t-30" @click="$router.push('/myProject')">
+      <div class="card m-t-30" @click="$router.push('/myProject?type=company')">
         <p>公司项目</p>
       </div>
     </div>

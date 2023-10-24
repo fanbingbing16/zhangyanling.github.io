@@ -47,7 +47,6 @@ export default {
         // duration = Math.floor(Math.random() * 11) % 6 + 5;
         // delay = Math.floor((Math.random() * 6) % 3 + 1) * Math.floor(Math.random() * 2) % 2;
         color = "rgb(" + parseInt(Math.random() * 255) + "," + parseInt(Math.random() * 255) + "," + parseInt(Math.random() * 255) + ")";
-        console.log(this.bubbles,'bulles')
         // this.sleep(1000);
       }
     },
