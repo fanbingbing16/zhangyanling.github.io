@@ -4,15 +4,10 @@
     <div class="box">
       <div class="score">得分:{{ score }}</div>
       <div class="boxs">
-        <div
-          class="box-item"
-          v-for="item in data"
-          :key="item.id"
-          :style="{
-            'margin-left': item.id % 9 === 0 ? '0' : '10px',
-            background: item.click ? 'rgba(0,0,0,0)' : 'rgb(20, 146, 219)',
-          }"
-        ></div>
+        <div class="box-item" v-for="item in data" :key="item.id" :style="{
+          'margin-left': item.id % 9 === 0 ? '0' : '10px',
+          background: item.click ? 'rgba(0,0,0,0)' : 'rgb(20, 146, 219)',
+        }"></div>
       </div>
       <div class="ball"></div>
       <div class="ban" style="bottom: 20px; left: 304px"></div>
@@ -25,13 +20,11 @@
         {{ tip }}
       </template>
       <template v-slot:footer>
-        <button
-          @click="
-            score = 0;
-            visible = false;
-            changeBall();
-          "
-        >
+        <button @click="
+          score = 0;
+        visible = false;
+        changeBall();
+        ">
           重新开始
         </button>
       </template>
@@ -131,10 +124,12 @@ export default {
       this.inter = setInterval(() => {
         this.leftBall += this.x
         this.topBall += this.y
-        console.log(1111)
         if (document.getElementsByClassName('ball')[0]) {
           document.getElementsByClassName('ball')[0].style.marginLeft = this.leftBall + 'px'
           document.getElementsByClassName('ball')[0].style.marginTop = this.topBall + 'px'
+        } else {
+          clearInterval(this.inter)
+          this.inter = null
         }
 
         const clientBall = document.getElementsByClassName('ball')[0]?.getBoundingClientRect()
@@ -208,6 +203,7 @@ export default {
   background: rgb(20, 146, 219);
   margin: auto;
   box-sizing: border-box;
+
   .title {
     color: white;
     font-size: 28px;
@@ -216,6 +212,7 @@ export default {
     text-align: center;
     font-weight: 600;
   }
+
   .box {
     width: 70%;
     height: 70%;
@@ -227,22 +224,26 @@ export default {
     box-sizing: border-box;
     font-size: 20px;
     position: relative;
+
     .score {
       text-align: end;
     }
+
     .boxs {
       width: 100%;
       display: flex;
       justify-content: center;
       align-content: center;
       flex-wrap: wrap;
+
       .box-item {
-        width: calc(calc(calc(100% - 40px) - 80px) / 9);
+        width: calc(calc(100% - 80px) / 9);
         height: 30px;
         background: rgb(20, 146, 219);
         margin-top: 10px;
       }
     }
+
     .ball {
       border-radius: 100%;
       height: 30px;
@@ -250,6 +251,7 @@ export default {
       background: rgb(20, 146, 219);
       margin: 10px;
     }
+
     .ban {
       height: 20px;
       width: 70px;
@@ -260,11 +262,13 @@ export default {
       // left: 20px;
     }
   }
+
   .game {
     color: white;
     text-align: center;
     margin-top: 30px;
   }
+
   button {
     border: 0;
     background: rgb(20, 146, 219);

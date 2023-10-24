@@ -867,6 +867,7 @@ export default {
   justify-content: center;
   width: 100%;
   height: 100%;
+  overflow: auto;
   // align-items: center;
 
   .game {
