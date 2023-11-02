@@ -11,7 +11,6 @@
     "axios": "^1.4.0",
     "chinese-lunar-calendar": "^1.0.1",
     "core-js": "^3.8.3",
-    "echarts": "^5.4.3",
     "element-plus": "^2.3.9",
     "github-markdown-css": "^5.2.0",
     "html-loader": "^4.2.0",
@@ -32,7 +31,8 @@
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
     "sass": "^1.63.2",
-    "sass-loader": "^13.3.1"
+    "sass-loader": "^13.3.1",
+    "script-ext-html-webpack-plugin": "^2.1.5"
   },
   "eslintConfig": {
     "root": true,

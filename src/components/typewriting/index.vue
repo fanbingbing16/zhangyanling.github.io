@@ -70,7 +70,7 @@ function changeWord($event) {
 }
 </script>
 <style lang="scss" scoped>
-::v-deep .top-title{
+:deep .top-title{
   i{
     display: none;
   }

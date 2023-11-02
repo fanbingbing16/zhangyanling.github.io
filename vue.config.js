@@ -1,10 +1,15 @@
 const { defineConfig } = require('@vue/cli-service')
 const CompressionPlugin = require("compression-webpack-plugin") //引入gzip压缩插件
 
+const path = require('path')
 
-
+function resolve(dir) {
+  return path.join(__dirname, dir)
+}
 
 module.exports = defineConfig({
+  productionSourceMap: false,
+
   transpileDependencies: true,
   chainWebpack: config => {
 
@@ -31,6 +36,44 @@ module.exports = defineConfig({
         .end()
 
     })
+    config.when(process.env.NODE_ENV !== 'development',
+      config => {
+        config
+          .plugin('ScriptExtHtmlWebpackPlugin')
+          .after('html')
+          .use('script-ext-html-webpack-plugin', [{
+            // `runtime` must same as runtimeChunk name. default is `runtime`
+            inline: /runtime\..*\.js$/
+          }])
+          .end()
+        // 对超过10kb的文件gzip压缩
+        config.plugin('compressionPlugin').use(
+          new CompressionPlugin({
+            test: /\.(js|css|html)$/, // 匹配文件名
+            threshold: 10240
+          })
+        )
+        config.optimization.splitChunks({
+          chunks: 'all',
+          maxSize: 1600000,
+          cacheGroups: {
+            libs: {
+              name: 'chunk-libs',
+              test: /[\\/]node_modules[\\/]/,
+              priority: 10,
+              chunks: 'initial' // only package third parties that are initially dependent
+            },
+            elementPlus: {
+              name: 'chunk-elementPlus', // split elementPlus into a single package
+              priority: 20, // the weight needs to be larger than libs and app or it will be packaged into libs or app
+              test: /[\\/]node_modules[\\/]_?element-plus(.*)/ // in order to adapt to cnpm
+            },
+           
+          }
+        })
+
+      })
+
 
   }, configureWebpack: {
     module: {
@@ -45,14 +88,14 @@ module.exports = defineConfig({
         }
       ]
     },
-    plugins: [
-      new CompressionPlugin({
-        //gzip压缩配置
-        test: /\.js$|\.html$|\.css/, //匹配文件名
-        threshold: 10240, //对超过10kb的数据进行压缩
-        deleteOriginalAssets: false, //是否删除原文件
-      }),
-    ],
+    // plugins: [
+    //   new CompressionPlugin({
+    //     //gzip压缩配置
+    //     test: /\.js$|\.html$|\.css/, //匹配文件名
+    //     threshold: 10240, //对超过10kb的数据进行压缩
+    //     deleteOriginalAssets: false, //是否删除原文件
+    //   }),
+    // ],
   },
 
 

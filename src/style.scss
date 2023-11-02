@@ -162,3 +162,13 @@ form.el-form.demo-ruleForm {
   border: 1px solid #e7e3e3;
   box-shadow: 1px 1px 9px 1px #e9e7e7;
 }
+@keyframes paint {
+  from {
+    scale: 0;
+
+  }
+
+  to {
+    scale: 1;
+  }
+}

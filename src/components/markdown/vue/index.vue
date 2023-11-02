@@ -12,7 +12,6 @@ export default {
   },
 
   mounted() {
-    console.log(this.$router, this.$route)
     const { marked } = require("marked");
     this.articalContent = marked(this.$route.query?.type === 'company' ? company : DemoMd);
   }
@@ -50,4 +49,7 @@ export default {
   :deep h6 {
     text-align: left;
   }
-}</style>
+  
+}
+
+</style>

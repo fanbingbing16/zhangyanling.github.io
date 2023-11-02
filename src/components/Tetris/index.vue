@@ -392,7 +392,7 @@ this.keyDown()
   }
   .control {
     width: 220px;
-    ::v-deep .el-button {
+    :deep .el-button {
       width: 220px;
       height: 40px;
       text-align: center;
@@ -406,7 +406,7 @@ this.keyDown()
       display: flex;
       justify-content: space-between;
       margin-bottom: 20px;
-      ::v-deep .el-button {
+      :deep .el-button {
         width: 90px;
         height: 40px;
         text-align: center;
