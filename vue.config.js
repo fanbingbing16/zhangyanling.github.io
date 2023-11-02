@@ -1,11 +1,11 @@
 const { defineConfig } = require('@vue/cli-service')
 const CompressionPlugin = require("compression-webpack-plugin") //引入gzip压缩插件
 
-const path = require('path')
+// const path = require('path')
 
-function resolve(dir) {
-  return path.join(__dirname, dir)
-}
+// function resolve(dir) {
+//   return path.join(__dirname, dir)
+// }
 
 module.exports = defineConfig({
   productionSourceMap: false,
