@@ -24,94 +24,96 @@ import tianqi from '../components/tianqi'
 export const routes = [
   {
     path: '/', redirect: '/HelloWorld', component: App,
-    children: [{ path: '/HelloWorld', component: HelloWorld, }]
+  },
+  {
+path: '/HelloWorld', component: HelloWorld,
   },
   {
     // path: '/', redirect: '/calendar', component: App,
-    children: [{ path: '/calendar', component: calendar },]
+     path: '/calendar', component: calendar 
   },
   {
     // path: '/', redirect: '/timer', component: App,
-    children: [{ path: '/timer', component: Timer }]
+    path: '/timer', component: Timer 
   },
   {
     // path: '/', redirect: '/pikaqiu', component: App,
-    children: [{ path: '/pikaqiu', component: pikaqiu }]
+     path: '/pikaqiu', component: pikaqiu 
   },
   {
     // path: '/', redirect: '/computer', component: App,
-    children: [{ path: '/computer', component: computer }]
+    path: '/computer', component: computer 
   },
   {
     // path: '/', redirect: '/helloKitty', component: App,
-    children: [{ path: '/helloKitty', component: helloKitty }]
+     path: '/helloKitty', component: helloKitty 
   },
   {
     // path: '/', redirect: '/duolam', component: App,
-    children: [{ path: '/duolam', component: duolam }]
+     path: '/duolam', component: duolam 
   },
   {
     // path: '/', redirect: '/blockBreaker', component: App,
-    children: [{ path: '/blockBreaker', component: blockBreaker }]
+   path: '/blockBreaker', component: blockBreaker 
   },
   {
     // path: '/', redirect: '/editor', component: App,
-    children: [{ path: '/editor', component: Editor }]
+   path: '/editor', component: Editor 
   },
   {
     // path: '/', redirect: '/tianqi', component: App,
-    children: [{ path: '/tianqi', component: tianqi }]
+   path: '/tianqi', component: tianqi 
   },
   {
     // path: '/', redirect: '/triangle', component: App,
-    children: [{ path: '/triangle', component: triangle }]
+    path: '/triangle', component: triangle 
   },
   {
     // path: '/', redirect: '/tetris', component: App,
-    children: [{ path: '/tetris', component: tetris }]
+  path: '/tetris', component: tetris 
   },
   {
     // path: '/', redirect: '/2048', component: App,
-    children: [{ path: '/2048', component: game2048 }]
+   path: '/2048', component: game2048 
   },
   {
     // path: '/', redirect: '/mineDlearance', component: App,
-    children: [{ path: '/mineDlearance', component: mineDlearance }]
+    path: '/mineDlearance', component: mineDlearance 
   },
   {
     // path: '/', redirect: '/gobang', component: App,
-    children: [{ path: '/gobang', component: gobang }]
+  path: '/gobang', component: gobang 
   },
   {
     // path: '/', redirect: '/play2', component: App,
-    children: [{ path: '/play2', component: play }]
+   path: '/play2', component: play 
   },
   {
     // path: '/', redirect: '/Sudoku', component: App,
-    children: [{ path: '/Sudoku', component: Sudoku }]
+    path: '/Sudoku', component: Sudoku 
   },
   {
     // path: '/', redirect: '/huarongRoad', component: App,
-    children: [{ path: '/huarongRoad', component: huarongRoad }]
+   path: '/huarongRoad', component: huarongRoad 
   },
   {
     // path: '/', redirect: '/xiaoxiaole', component: App,
-    children: [{ path: '/xiaoxiaole', component: xiaoxiaole }]
+    path: '/xiaoxiaole', component: xiaoxiaole 
   },
   {
     // path: '/', redirect: '/randomPass', component: App,
-    children: [{ path: '/randomPass', component: randomPass }]
+   path: '/randomPass', component: randomPass 
   },
   {
     // path: '/', redirect: '/myProject', component: App,
-    children: [{ path: '/myProject', component: myProjet }]
+   path: '/myProject', component: myProjet 
   },
   {
     // path: '/', redirect: '/typewriting', component: App,
-    children: [{ path: '/typewriting', component: typewriting }]
+    path: '/typewriting', component: typewriting 
   },
   {
-    children:[{path:'/flower',component:import('../components/markdown/vue/flower.vue')}]
+    path:'/flower',component:import('../components/markdown/vue/flower.vue')
   }
   
 ]

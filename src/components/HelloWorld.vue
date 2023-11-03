@@ -1,16 +1,18 @@
 <template>
   <div class="main">
-    <h1>欢迎您进入我的个人网站</h1>
-    <div class="card-list m-t-40">
-      <div class="card" @click="$router.push('/myProject')">
-        <p>个人项目</p>
-      </div>
-      <div class="card m-t-30" @click="$router.push('/myProject?type=company')">
-        <p>公司项目</p>
-      </div>
-      <div class="card m-t-30" @click="$router.push('/flower')">
-        <p>教程</p>
-      </div>
+    <div class="box">
+      <img src="..\assets\1.jpeg" alt="" class="box-img">
+      <h1 class="name">Zhang YanLing</h1>
+      <h2>Web Front-end Development </h2>
+      <h3>Welcome to my personal website! </h3>
+      <h3>These menus can all be clicked on below
+      </h3>
+      <a href="/#/myProject" class="one">Personal project&nbsp;&nbsp;
+      </a>
+      <a href="/#/myProject?type=company" class="one">Company Projects&nbsp;
+      </a>
+      <a href="/#/flower" class="one">Tutorial&nbsp;
+      </a>
     </div>
 
     <!-- css -->
@@ -41,37 +43,57 @@
 </template>
 <style lang="scss" scoped>
 .main {
-  background-image: url("../assets/bg.jpeg");
+  background: url("../assets/bg.jpg") no-repeat;
   background-size: cover;
-  background-repeat: no-repeat;
   background-attachment: fixed;
   height: 100%;
   width: 100%;
   color: white;
-  h1 {
-    margin: 0;
-    padding-top: 15%;
+  margin: 0;
+  padding: 0.1px;
+
+  .box {
+    color: rgb(6, 173, 151);
+    width: 450px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 40px;
+    text-align: center;
+    margin: auto;
+    margin-top: 5%;
+    font-family: 'Century Gothic', sans-serif;
   }
-  .card-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: column;
-    align-content: center;
-    .card {
-      cursor: pointer;
-      width: 30%;
-      height: 50px;
-      background: #fff;
-      color: #000;
-      padding: 10px;
-      border-radius: 10px;
-      &:hover{
-        background: #ccc;
-      }
-    }
+
+  .box .box-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
+
+  .box h1 {
+    font-size: 50px;
+    letter-spacing: 4px;
+    font-weight: 400;
+  }
+
+  .box h2 {
+    font-size: 30px;
+    letter-spacing: 3px;
+    font-weight: 300;
+
+  }
+
+  .one {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    color: grey;
+  }
+
+  .one:hover {
+    color: rgb(6, 173, 151);
   }
 }
+
 a {
   margin-left: 10px;
   color: white;
