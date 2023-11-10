@@ -21,6 +21,7 @@ import myProjet from '../components/markdown/vue'
 import typewriting from '../components/typewriting'
 import Editor from '../components/editor/editor.vue'
 import tianqi from '../components/tianqi'
+import flower from '../components/markdown/vue/flower.vue'
 export const routes = [
   {
     path: '/', redirect: '/HelloWorld', component: App,
@@ -113,8 +114,9 @@ path: '/HelloWorld', component: HelloWorld,
     path: '/typewriting', component: typewriting 
   },
   {
-    path:'/flower',component:import('../components/markdown/vue/flower.vue')
-  }
+    path:'/flower',component:flower
+  },
+
   
 ]
 

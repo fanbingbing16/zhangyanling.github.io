@@ -9,7 +9,6 @@ const CompressionPlugin = require("compression-webpack-plugin") //引入gzip压�
 
 module.exports = defineConfig({
   productionSourceMap: false,
-
   transpileDependencies: true,
   chainWebpack: config => {
 
@@ -85,7 +84,12 @@ module.exports = defineConfig({
             { loader: "html-loader" },
             { loader: "markdown-loader", options: {} }
           ]
-        }
+        },
+        {  
+          test: /\.(ts)$/,  
+          use: 'ts-loader',  
+          exclude: /node_modules/,  
+        },  
       ]
     },
     // plugins: [
