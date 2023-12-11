@@ -7,6 +7,9 @@ import ElementPlus from 'element-plus'
 import 'element-plus/theme-chalk/index.css'
 import 'github-markdown-css';
 import { routes } from './dependences/router';
+
+
+
 const router = createRouter({
   history: createWebHashHistory(),
   routes
@@ -31,7 +34,6 @@ app.config.globalProperties.$axios = axios
 app.use(router)
 app.use(ElementPlus)
 app.mount('#app')
-
 const debounce = (fn, delay) => {
 	let timer = null;
 

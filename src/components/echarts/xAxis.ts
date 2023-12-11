@@ -98,7 +98,25 @@ const data: dataInter[] = [
 
     ]
   },
-  { id: 28, name: 'logBase', description: '对数轴的底数，只在对数轴中（type: "log"）有效。', value: 10, type: 'input' },
+  { id: 28, name: 'axisLabel', description: '坐标轴刻度标签的相关设置。', value: '', type: '' ,children:[
+    { id: '28-1', name: 'show', description: '是否显示刻度标签。', value: true, type: 'switch' },
+    { id: '28-1', name: 'interval', description: '坐标轴刻度标签的显示间隔，在类目轴中有效。function number', value: 'auto', type: 'input' },
+    { id: '28-1', name: 'inside', description: '刻度标签是否朝内，默认朝外。', value: false, type: 'switch' },
+    { id: '28-1', name: 'rotate', description: '刻度标签旋转的角度，在类目轴的类目标签显示不下的时候可以通过旋转防止标签之间重叠。旋转的角度从 -90 度到 90 度。', value: 0, type: 'input' },
+    { id: '28-1', name: 'margin', description: '刻度标签与轴线之间的距离。', value: 8, type: 'input' },
+    { id: '28-1', name: 'formatter', description: '刻度标签的内容格式器，支持字符串模板和回调函数两种形式。', value: '', type: 'input' },
+    { id: '28-1', name: 'showMinLabel', description: '是否显示最小 tick 的 label。', value: '', type: 'switch' },
+    { id: '28-1', name: 'showMaxLabel', description: '是否显示最大 tick 的 label。', value: '', type: 'switch' },
+    { id: '28-1', name: 'hideOverlap', description: '是否隐藏重叠的标签。', value: false, type: 'switch' },
+    { id: '28-1', name: 'color', description: '刻度标签文字的颜色，默认取 axisLine.lineStyle.color。', value: '', type: 'color' },
+    { id: '28-1', name: 'fontStyle', description: '文字字体的风格。', value: 'normal', type: 'select',data:[{label:'oblique',value:'oblique'},{label:'italic',value:'italic'},{label:'normal',value:'normal'},] },
+    { id: '28-1', name: 'fontWeight', description: '文字字体的粗细。', value: 'normal', type: 'select', data: [{ label: 'bolder', value: 'bolder' }, { label: 'bold', value: 'bold' }, { label: 'normal', value: 'normal' }, { label: 'lighter', value: 'lighter' }, { label: '100', value: 100 }, { label: '200', value: 200 }, { label: '300', value: 300 }, { label: '400', value: 400 }, { label: '500', value: 500 }, { label: '600', value: 600 }, { label: '700', value: 700 }, { label: '800', value: 800 }, { label: '900', value: 900 }] },
+    { id: '28-1', name: 'fontFamily', description: '坐标轴名称文字的字体系列。', value: 'sans-serif', type: 'select', data: [{ value: 'serif', label: 'serif' }, { value: 'monospace', label: 'monospace' }, { value: 'Arial', label: 'Arial' }, { value: 'Courier New', label: 'Courier New' }, { value: 'Microsoft YaHei', label: 'Microsoft YaHei' }], config: ['allow-create'] },
+    { id: '28-1', name: 'fontSize', description: '文字的字体大小。', value: 12, type: 'input' },
+    { id: '28-1', name: 'align', description: '文字水平对齐方式，默认自动。', value: '', type: 'select', data: [{ label: 'right', value: 'right' }, { label: 'center', value: 'center' }, { label: 'left', value: 'left' },] },
+    { id: '28-1', name: 'logBase', description: '对数轴的底数，只在对数轴中（type: "log"）有效。', value: 10, type: 'input' },
+
+  ]},
   { id: 29, name: 'logBase', description: '对数轴的底数，只在对数轴中（type: "log"）有效。', value: 10, type: 'input' },
   { id: 30, name: 'logBase', description: '对数轴的底数，只在对数轴中（type: "log"）有效。', value: 10, type: 'input' },
   { id: 31, name: 'logBase', description: '对数轴的底数，只在对数轴中（type: "log"）有效。', value: 10, type: 'input' },
