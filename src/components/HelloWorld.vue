@@ -13,6 +13,7 @@
       </a>
       <a href="/#/flower" class="one">Tutorial&nbsp;
       </a>
+      <a href="/#/exericise" class="one">Online Code Editor&nbsp;</a>
     </div>
     <!-- https://uigradients.com/#Blu -->
     <!-- css -->
@@ -54,7 +55,7 @@
 
   .box {
     color: rgb(6, 173, 151);
-    width: 450px;
+    width:30%;
     background: rgba(0, 0, 0, 0.4);
     padding: 40px;
     text-align: center;

@@ -5,20 +5,17 @@
   </div>
 </template>
 <script setup >
-import { ref, defineEmits, defineProps, reactive } from 'vue'
+import { ref, defineEmits, defineProps, reactive,watchEffect } from 'vue'
 import { Codemirror } from 'vue-codemirror'
 import { vue } from '@codemirror/lang-vue'
 import { oneDark } from '@codemirror/theme-one-dark'
+import '@vue/repl/dist/style.css'
 
 const props = defineProps({
-  // placeholder: Code goes here...,
   dark: Boolean,
   code: String,
-  height: [String, Number]
-  // autofocus: false,
-  // disabled: false,
-  // indentWithTab: true,
-  // tabSize: 2
+  height: [String, Number],
+  codeType: Object
 })
 const options = reactive({
   mode: 'application/javascript',
@@ -37,8 +34,13 @@ const options = reactive({
     completeSingle: false,
   }, // 提示配置
 })
-const extensions = props.dark ? [vue(), oneDark] : [vue()]
+const extensions = ref(props.dark ? [props.codeType || vue(), oneDark] : [props.codeType || vue()])
 const codeValue = ref(props.code)
+
+watchEffect (()=>{
+    extensions.value = props.dark ? [props.codeType || vue(), oneDark] : [props.codeType || vue()]
+    codeValue.value = props.code
+})
 
 const emits = defineEmits(['update:code', 'ready', 'change', 'focus', 'blur'])
 function handleReady(payload) {
@@ -74,10 +76,11 @@ function onBlur(viewUpdate) {
 
 :deep .cm-line {
   text-align: left;
+  height: auto !important;
 }
 
 :deep .cm-scroller {
-  height: calc(100vh - 40px);
+  height: calc(100% - 40px);
   max-height: 100vh;
 }
 </style>

@@ -12,14 +12,12 @@
 
 <script setup>
 import { onMounted, ref } from 'vue';
-import Codemirror from './codemirror.vue'
+import Codemirror from '../codemirror.vue'
 import repl from './repl1.1.vue';
 const code = ref("");
 const run = ref(null)
 const change = (value) => {
-  code.value = value
-  console.log(value, code.value, 'value,code')
-  
+  code.value = value  
 }
 const blur = () => {
   console.log('blur')
@@ -38,7 +36,7 @@ onMounted(() => {
   .left {
     flex: 1;
 
-    ::v-deep .cm-scroller {
+    :deep .cm-scroller {
       width: 50vw;
     }
   }

@@ -23,6 +23,8 @@ import Editor from '../components/editor/editor.vue'
 import tianqi from '../components/tianqi'
 import flower from '../components/markdown/vue/flower.vue'
 import exericeField from '../components/exericiseField'
+import VueRepl from '../components/exericiseField/vueRepl.vue'
+import htmlVue from '../components/exericiseField/html.vue'
 export const routes = [
   {
     path: '/', redirect: '/HelloWorld', component: App,
@@ -72,7 +74,7 @@ path: '/HelloWorld', component: HelloWorld,
   },
   {
     // path: '/', redirect: '/tetris', component: App,
-  path: '/tetris', component: tetris 
+    path: '/tetris', component: tetris 
   },
   {
     // path: '/', redirect: '/2048', component: App,
@@ -115,11 +117,14 @@ path: '/HelloWorld', component: HelloWorld,
     path: '/typewriting', component: typewriting 
   },
   {
-    path:'/flower',component: flower
+    path: '/flower', component: flower
   },
   {
-    path:'/exericise',component: exericeField
+    path: '/exericise', component: exericeField,
   },
+  { path: '/exericise/vue', component: VueRepl },
+  { path: '/exericise/html', component: htmlVue }
+
 
 ]
 

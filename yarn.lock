@@ -1170,10 +1170,10 @@
   "resolved" "https://registry.npmjs.org/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz"
   "version" "0.5.7"
 
-"@element-plus/icons-vue@^2.0.6":
-  "integrity" "sha512-PSBn3elNoanENc1vnCfh+3WA9fimRC7n+fWkf3rE5jvv+aBohNHABC/KAR5KWPecxWxDTVT1ERpRbOMRcOV/vA=="
-  "resolved" "https://registry.npmmirror.com/@element-plus/icons-vue/-/icons-vue-2.1.0.tgz"
-  "version" "2.1.0"
+"@element-plus/icons-vue@^2.0.6", "@element-plus/icons-vue@^2.3.1":
+  "integrity" "sha512-XxVUZv48RZAd87ucGS48jPf6pKu0yV5UCg9f4FFwtrYxXOwWuVJo6wOvSLKEoMQKjv8GsX/mhP6UsC1lRwbUWg=="
+  "resolved" "https://registry.npmmirror.com/@element-plus/icons-vue/-/icons-vue-2.3.1.tgz"
+  "version" "2.3.1"
 
 "@eslint/eslintrc@^0.4.3":
   "integrity" "sha512-J6KFFz5QCYUJq3pf0mjEcCJVERbzv71PUIDczuh9JkwGEzced6CO5ADLHB1rbf/+oPBtoPfMYNOpGDzCANlbXw=="
@@ -3866,6 +3866,11 @@
   "version" "0.11.4"
   dependencies:
     "websocket-driver" ">=0.5.1"
+
+"fflate@^0.8.1":
+  "integrity" "sha512-/exOvEuc+/iaUm105QIiOt4LpBdMTWsXxqR0HDF35vx3fmaKzw7354gTilCh5rkzEt8WYyG//ku3h3nRmd7CHQ=="
+  "resolved" "https://registry.npmmirror.com/fflate/-/fflate-0.8.1.tgz"
+  "version" "0.8.1"
 
 "figures@^2.0.0":
   "integrity" "sha512-Oa2M9atig69ZkfwiApY8F2Yy+tzMbazyvqv21R0NsSC8floSOC09BbT1ITWAdoMGQvJ/aZnR1KMwdx9tvHnTNA=="
@@ -7118,11 +7123,6 @@
     "@vue/runtime-dom" "3.3.4"
     "@vue/server-renderer" "3.3.4"
     "@vue/shared" "3.3.4"
-
-"vue3-sfc-loader@^0.8.4":
-  "integrity" "sha512-eziaIrk/N9f9OCpyFEkR6vMsZUHcF5mQslXjffwcb5Iq6EuU74QrlpBeJqA04MvAGT7f5O8la2v9k3NtQnJb3Q=="
-  "resolved" "https://registry.npmmirror.com/vue3-sfc-loader/-/vue3-sfc-loader-0.8.4.tgz"
-  "version" "0.8.4"
 
 "w3c-keyname@^2.2.4":
   "integrity" "sha512-dpojBhNsCNN7T82Tm7k26A6G9ML3NkhDsnw9n/eoxSRlVBB4CEtIQ/KTCLI2Fwf3ataSXRhYFkQi3SlnFwPvPQ=="

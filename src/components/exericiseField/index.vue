@@ -1,79 +1,57 @@
-
-<script setup>
-import { reactive, watchEffect } from 'vue';
-import { Repl, ReplStore} from '@vue/repl'
-import CodeMirror from '@vue/repl/codemirror-editor'
-import '@vue/repl/dist/style.css'
-
-const hash = location.hash.split('?')?.[1]?.split('&')
-let serializedState = ''
-hash?.some(item=>{
-  let temp = item.split('=')
-  if(temp[0]=='code'){
-    serializedState = temp[1].slice(1)
-  }
-})
-
-const state = reactive({
-  // repl 属性
-  showCompileOutput: true,
-  showImportMap: true,
-  layout: 'horizon',
-  // 版本切换
-  previewOptions: { headHTML: '' },
-})
-// repl组件需要store管理状态
-const store = new ReplStore({
-  showOutput: true,
-  outputMode: "preview",
-  serializedState
-});
-watchEffect(()=>history.replaceState({},'','/#/exericise?code='+store.serialize()))
-
-
-</script>
-
 <template>
-  <div>
-    <div class="header">
-    <div class="title">
-       <span> Vue 演练场</span>
+  <div class="exericise-field">
+    <h1>在线代码编辑器</h1>
+    <div class="boxs">
+      <div class="box" v-for="(item, index) in boxs" :key="index" @click="$router.push(item.url)">
+        <div class="title">{{ item.title }}</div>
+        <div class="samll-title">{{ item.detail }}</div>
+        <img :src="require('../../assets/' + item.logo)" alt="" srcset="" :style="item.detail?'height:90px;':'height:110px;'">
+      </div>
     </div>
-   
-  </div> 
-    <Repl :store="store" :editor="CodeMirror" :show-compile-output="state.showCompileOutput"
-      :show-import-map="state.showImportMap" :previewOptions="state.previewOptions" :clear-console="false"
-      :layout="state.layout" ></Repl>
   </div>
 </template>
+<script setup>
+import { ref } from "vue";
 
-<style>
-* {
-  box-sizing: border-box;
+const boxs = ref([
+  { title: 'Vue playground', logo: 'logo.png', url: '/exericise/vue' },
+  { title: 'HTML playground', logo: 'html.jpg', url: '/exericise/javascript', detail: '可书写JavaScript代码,也支持scss' }
+
+])
+</script>
+<style lang="scss" scoped>
+.exericise-field {
+  .boxs {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 0 20px 20px;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+
+    .box {
+      padding: 20px;
+      width: 20%;
+      margin-right: 20px;
+      border: 1px solid #fff;
+      box-shadow: 0px 0px 10px #f0f0f0;
+      border-radius: 10px;
+      height: 184px;
+      cursor: pointer;
+
+      img {
+        height: 110px;
+      }
+
+      .samll-title {
+        font-size: 14px;
+        color: #ccc;
+      }
+    }
+
+    .box:hover {
+      box-shadow: 0px 0px 10px #dddddd;
+    }
+  }
 }
-
-.header {
-  height: 36px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-bottom: 6px;
-  border-bottom: solid 1px #e1e1e1;
-}
-
-.vue-repl {
-  height: calc(100vh - 36px - 16px) !important;
-}
-
-.header>div {
-  vertical-align: middle;
-}
-
-.title {
-  font-size: 20px;
-}
-
-
-.CodeMirror-lines {
-  text-align: left;
-}</style>
+</style>
