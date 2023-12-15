@@ -75,7 +75,6 @@ hash?.some(item => {
         props.comPileFun(setting.code)
     })
 
-    console.log(props.comPileFun, 'props.comPileFun')
     emits('change', setting.code)
     emits('update:code', setting.code)
   }
