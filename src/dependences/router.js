@@ -30,7 +30,7 @@ export const routes = [
     path: '/', redirect: '/HelloWorld', component: App,
   },
   {
-path: '/HelloWorld', component: HelloWorld,
+    path: '/HelloWorld', component: HelloWorld,
   },
   {
     // path: '/', redirect: '/calendar', component: App,
@@ -124,8 +124,6 @@ path: '/HelloWorld', component: HelloWorld,
   },
   { path: '/exericise/vue', component: VueRepl },
   { path: '/exericise/html', component: htmlVue }
-
-
 ]
 
 // import App from '../App.vue'

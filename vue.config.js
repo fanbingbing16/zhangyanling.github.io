@@ -54,7 +54,8 @@ module.exports = defineConfig({
         )
         config.optimization.splitChunks({
           chunks: 'all',
-          maxSize: 1600000,
+          maxSize: 1100000,
+          minSize: 700000,
           cacheGroups: {
             libs: {
               name: 'chunk-libs',
@@ -67,13 +68,20 @@ module.exports = defineConfig({
               priority: 20, // the weight needs to be larger than libs and app or it will be packaged into libs or app
               test: /[\\/]node_modules[\\/]_?element-plus(.*)/ // in order to adapt to cnpm
             },
+            vue1: {
+              name: 'chunk-vue1', // split elementPlus into a single package
+              priority: 21, // the weight needs to be larger than libs and app or it will be packaged into libs or app
+              test: /[\\/]node_modules[\\/]_?@vue(.*)/, // in order to adapt to cnpm
+            },
+            typescript: {
+              name: 'chunk-typescript', // split elementPlus into a single package
+              priority: 22, // the weight needs to be larger than libs and app or it will be packaged into libs or app
+              test: /[\\/]node_modules[\\/]_?typescript(.*)/, // in order to adapt to cnpm
+            },
            
           }
         })
-
       })
-
-
   }, configureWebpack: {
     module: {
       rules: [
@@ -85,11 +93,7 @@ module.exports = defineConfig({
             { loader: "markdown-loader", options: {} }
           ]
         },
-        {  
-          test: /\.(ts)$/,  
-          use: 'ts-loader',  
-          exclude: /node_modules/,  
-        },  
+       
       ]
     },
     // plugins: [

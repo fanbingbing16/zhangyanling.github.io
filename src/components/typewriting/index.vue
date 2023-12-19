@@ -34,7 +34,7 @@
 <script setup>
 import dialogVue from '../comm/dialog'
 import { ref } from "vue";
-import { word } from './word.ts'
+import { word } from './word.js'
 const score = ref(0)
 const time = ref(10)
 const inputWord = ref('')
