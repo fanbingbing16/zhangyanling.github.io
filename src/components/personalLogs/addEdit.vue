@@ -18,7 +18,14 @@
           </el-col>
           <el-col :span="24">
             <el-form-item label="内容" prop="content">
-              <quill-editor v-model:value="dataForm.content"></quill-editor>
+
+              <el-radio-group v-model="dataForm.contentType">
+                <el-radio :label="1">富文本</el-radio>
+                <el-radio :label="2">markdown</el-radio>
+
+              </el-radio-group>
+              <quill-editor v-if="dataForm.contentType === 1" v-model:value="dataForm.content"></quill-editor>
+              <codemirror class="codemirror" v-else v-model="dataForm.content" mode="markdown"></codemirror>
             </el-form-item>
           </el-col>
         </el-row>
@@ -52,14 +59,14 @@
 </template>
 
 <script>
-import {type1,type2} from './options'
-
+import { type1, type2 } from './options'
+import codemirror from '../exericiseField/codemirror.vue'
 import axios from 'axios'
 import QuillEditor from '../comm/rich-text'
 export default {
   name: '',
   components: {
-
+    codemirror,
     QuillEditor
   },
   props: {
@@ -81,7 +88,8 @@ export default {
         type1: '',
         id: '',
         type2: '',
-        password:''
+        password: '',
+        contentType: 1
       },
       rules: {
         password: [
@@ -92,7 +100,7 @@ export default {
           { required: true, message: '请填写', trigger: 'blur' },
           { max: 25, message: '限25字以内', trigger: 'blur' }
         ],
-       content : [
+        content: [
           { required: true, message: '请填写', trigger: 'blur' }
 
         ],
@@ -135,7 +143,9 @@ export default {
             name: '',
             type1: '',
             id: '',
-            type2: ''
+            type2: '',
+            password: '',
+            contentType: 1
           }
         }
       })
@@ -157,7 +167,7 @@ export default {
               this.$message.success(res.data.msg)
               this.$emit('reset')
               this.visible = false
-            }else{
+            } else {
               this.$message.error(res.data.msg)
             }
           })
@@ -190,6 +200,9 @@ export default {
   ::v-deep .el-dialog__body {
     overflow: hidden;
   }
+}
+.codemirror{
+  width: 100%;
 }
 </style>
 

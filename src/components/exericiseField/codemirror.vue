@@ -15,10 +15,11 @@ const props = defineProps({
   dark: Boolean,
   code: String,
   height: [String, Number],
-  codeType: Object
+  codeType: Object,
+  mode:String
 })
 const options = reactive({
-  mode: 'application/javascript',
+  mode: props.mode||'application/javascript',
   theme: 'default',
   matchBrackets: true, //括号匹配
   autoCloseBrackets: true, // 自动补齐
