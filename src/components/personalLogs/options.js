@@ -6,8 +6,9 @@ export const type1 = [
 ]
 export const type2 = [
   { label: 'JavaScript', value: 1 },
+  { label: 'css', value: 5 },
   { label: 'Vue', value: 2 },
-  { label: '算法', value: 3 },
+  { label: '算法', value: 4 },
   { label: '后端', value: 3 }
 
 ]

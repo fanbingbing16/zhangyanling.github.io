@@ -161,7 +161,7 @@ export default {
         if (valid) {
           this.submitLoading = true
           axios.post('http://103.152.132.87:3000/logs/addEdit',
-            { ... this.dataForm }
+            { ... this.dataForm,isMarkdown:this.dataForm.contentType===2?1:0 }
           ).then(res => {
             if (res.data.status === 1) {
               this.$message.success(res.data.msg)

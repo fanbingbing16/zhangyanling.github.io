@@ -5,6 +5,12 @@
 import DemoMd from '../md/个人项目.md';
 import company from '../md/公司项目.md'
 export default {
+  props: {
+    text: {
+      default: '',
+      type: String
+    }
+  },
   data() {
     return {
       articalContent: ""
@@ -13,7 +19,9 @@ export default {
 
   mounted() {
     const { marked } = require("marked");
-    this.articalContent = marked(this.$route.query?.type === 'company' ? company : DemoMd);
+    if (!this.text)
+      this.articalContent = marked(this.$route.query?.type === 'company' ? company : DemoMd);
+    else this.articalContent = marked(this.text)
   }
 };
 </script>
@@ -49,7 +57,6 @@ export default {
   :deep h6 {
     text-align: left;
   }
-  
-}
 
+}
 </style>
