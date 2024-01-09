@@ -15,7 +15,7 @@ import { ref } from "vue";
 
 const boxs = ref([
   { title: 'Vue playground', logo: 'logo.png', url: '/exericise/vue' },
-  { title: 'HTML playground', logo: 'html.jpg', url: '/exericise/html', detail: '可书写JavaScript代码,也支持scss' }
+  { title: 'HTML playground', logo: 'html.jpg', url: '/exericise/html', detail: '可书写JavaScript代码' }
 
 ])
 </script>
