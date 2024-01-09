@@ -2,7 +2,6 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import { createRouter, createWebHashHistory } from "vue-router";
 
-import axios from 'axios'
 import ElementPlus from 'element-plus'
 import 'element-plus/theme-chalk/index.css'
 import 'github-markdown-css';
@@ -17,7 +16,6 @@ const router = createRouter({
 })
 
 const app = createApp(App)
-app.config.globalProperties.$axios = axios
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }

@@ -25,6 +25,9 @@ import flower from '../components/markdown/vue/flower.vue'
 import exericeField from '../components/exericiseField'
 import VueRepl from '../components/exericiseField/vueRepl.vue'
 import htmlVue from '../components/exericiseField/html.vue'
+import personalLogs from '../components/personalLogs'
+import personalLogsSee from '../components/personalLogs/see'
+
 export const routes = [
   {
     path: '/', redirect: '/HelloWorld', component: App,
@@ -123,7 +126,14 @@ export const routes = [
     path: '/exericise', component: exericeField,
   },
   { path: '/exericise/vue', component: VueRepl },
-  { path: '/exericise/html', component: htmlVue }
+  { path: '/exericise/html', component: htmlVue },
+  {
+    path: '/logs', component: personalLogs,
+  },
+  {
+    path: '/logs/see', component: personalLogsSee,
+  },
+  
 ]
 
 // import App from '../App.vue'

@@ -54,6 +54,11 @@ export default {
 </script>
 
 <style lang="scss">
+.el-table th.el-table__cell {
+    // background-color: var(--el-table-tr-bg-color);
+    background-color: #79bbff !important;
+    color: whitesmoke;
+}
 html {
   height: 100%;
   width: 100%;

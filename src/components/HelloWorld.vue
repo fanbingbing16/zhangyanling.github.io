@@ -14,6 +14,8 @@
       <a href="/#/flower" class="one">Tutorial&nbsp;
       </a>
       <a href="/#/exericise" class="one">Online Code Editor&nbsp;</a>
+      <a href="/#/logs" class="one">Personal Log&nbsp;</a>
+
     </div>
     <!-- https://uigradients.com/#Blu -->
     <!-- css -->
@@ -99,4 +101,5 @@ a {
   margin-left: 10px;
   color: white;
 }
+
 </style>

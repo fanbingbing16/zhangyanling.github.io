@@ -15,6 +15,7 @@
     "@codemirror/theme-one-dark": "^6.1.2",
     "@element-plus/icons-vue": "^2.3.1",
     "@vue/repl": "^3.0.0",
+    "@vueup/vue-quill": "^1.0.0-alpha.40",
     "axios": "^1.4.0",
     "chinese-lunar-calendar": "^1.0.1",
     "codemirror": "^6.0.1",
