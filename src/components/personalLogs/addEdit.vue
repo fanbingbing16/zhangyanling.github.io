@@ -19,9 +19,9 @@
           <el-col :span="24">
             <el-form-item label="内容" prop="content">
 
-              <el-radio-group v-model="dataForm.contentType">
-                <el-radio :label="1">富文本</el-radio>
-                <el-radio :label="2">markdown</el-radio>
+              <el-radio-group v-model="dataForm.isMarkdown">
+                <el-radio label="0">富文本</el-radio>
+                <el-radio label="1">markdown</el-radio>
 
               </el-radio-group>
               <quill-editor v-if="dataForm.contentType === 1" v-model:value="dataForm.content"></quill-editor>
@@ -89,7 +89,7 @@ export default {
         id: '',
         type2: '',
         password: '',
-        contentType: 1
+        isMarkdown: '1'
       },
       rules: {
         password: [
@@ -145,7 +145,7 @@ export default {
             id: '',
             type2: '',
             password: '',
-            contentType: 1
+            isMarkdown: '1'
           }
         }
       })
@@ -161,7 +161,7 @@ export default {
         if (valid) {
           this.submitLoading = true
           axios.post('http://103.152.132.87:3000/logs/addEdit',
-            { ... this.dataForm,isMarkdown:this.dataForm.contentType===2?1:0 }
+            { ... this.dataForm}
           ).then(res => {
             if (res.data.status === 1) {
               this.$message.success(res.data.msg)

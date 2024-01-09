@@ -51,11 +51,11 @@
     <el-table :data="tableData" style="width: 100%">
       <el-table-column prop="date" label="日期" width="160" />
       <el-table-column prop="name" label="标题" />
-      <el-table-column prop="content" label="内容">
+      <!-- <el-table-column prop="content" label="内容">
         <template #default="scope">
           <div v-html="scope.row.content" class="elipisis"></div>
         </template>
-      </el-table-column>
+      </el-table-column> -->
       <el-table-column prop="type1" label="类型1" max-width="160">
         <template #default="scope">
           {{ type1.filter(item => item.value === scope.row.type1)[0]
