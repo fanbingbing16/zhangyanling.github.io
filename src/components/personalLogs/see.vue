@@ -16,7 +16,7 @@ console.log(router, 'router')
 const content = ref('')
 const title = ref('')
 const isMarkdown = ref(false)
-axios.get('http://103.152.132.87:3000/logs/detail', { params: { id: router.currentRoute.value.query.id } }).then(res => {
+axios.get('http://103.133.177.119:3000/logs/detail', { params: { id: router.currentRoute.value.query.id } }).then(res => {
   if (res.data.status === 1) {
     content.value = res.data.data[0].content
     title.value = res.data.data[0].name
