@@ -130,7 +130,7 @@ function handleDialog(id, ref, item) {
   addEditVue.value.init()
 }
 function deleteOne() {
-  axios.post('http://103.152.132.87:3000/logs/delete', {
+  axios.post('http://103.133.177.119:3000/logs/delete', {
     id: selectId.value, password: ruleForm.password
   }).then(res => {
     if (res.data.status === 1) {
@@ -150,7 +150,7 @@ function deleteOne() {
   })
 }
 function getData() {
-  axios.get('http://103.152.132.87:3000/logs', {
+  axios.get('http://103.133.177.119:3000/logs', {
     params:
     {
       ...dataForm,
