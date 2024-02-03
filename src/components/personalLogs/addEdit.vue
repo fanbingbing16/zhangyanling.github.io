@@ -160,7 +160,7 @@ export default {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           this.submitLoading = true
-          axios.post('http://103.152.132.87:3000/logs/addEdit',
+          axios.post('http://103.133.177.119:3000/logs/addEdit',
             { ... this.dataForm}
           ).then(res => {
             if (res.data.status === 1) {
