@@ -207,29 +207,29 @@
     border: 6px solid #000;
     width: 31px;
     height: 32px;
-    margin-left: -146px;
+    margin-left: -138px;
     border-bottom-color: transparent;
     border-right-color: transparent;
     border-radius: 10px 20px;
-    transform: rotate(23deg);
-    margin-top: -11px;
+    transform: rotate(16deg);
+    margin-top: -7px;
     z-index: 3;
     span {
       height: 6px;
-      display: block;
-      width: 58px;
-      margin-left: 26px;
-      border-radius: 10px;
-      margin-top: -7px;
-      background: #000;
-      transform: rotate(347deg);
+    display: block;
+    width: 67px;
+    margin-left: 14px;
+    border-radius: 10px;
+    margin-top: -5px;
+    background: #000;
+    transform: rotate(355deg);
     }
   }
   div#rightear {
     border: 6px solid #000;
     width: 31px;
     height: 32px;
-    margin-left: 48px;
+    margin-left: 66px;
     border-bottom-color: transparent;
     border-right-color: transparent;
     border-radius: 10px 20px;
@@ -246,13 +246,13 @@
 
     .left {
       height: 32px;
-      width: 25px;
-      border-radius: 20px;
-      border: 4px solid #000;
-      background: red;
-      left: -58px;
-      top: -3px;
-      position: absolute;
+    width: 25px;
+    border-radius: 20px;
+    border: 4px solid #000;
+    background: red;
+    left: -55px;
+    top: 4px;
+    position: absolute;
       span {
         height: 10px;
         width: 10px;
@@ -267,13 +267,13 @@
 
     .right {
       height: 32px;
-      width: 25px;
-      border-radius: 20px;
-      border: 4px solid #000;
-      background: red;
-      right: -17px;
-      top: 1px;
-      position: absolute;
+    width: 25px;
+    border-radius: 20px;
+    border: 4px solid #000;
+    background: red;
+    right: -13px;
+    top: 1px;
+    position: absolute;
       span {
         height: 10px;
         width: 10px;
@@ -301,7 +301,7 @@
   #body {
     position: relative;
     margin-top: 55px;
-    margin-left: -72px;
+    margin-left: -64px;
     z-index: 1;
     div#chest {
       position: absolute;
@@ -338,21 +338,21 @@
     }
     div#leftleg {
       border: 6px solid #000;
-      position: absolute;
-      top: 121px;
-      width: 46px;
-      height: 30px;
-      left: -31px;
-      border-radius: 0px 10px 10px 20px;
+    position: absolute;
+    top: 112px;
+    width: 46px;
+    height: 30px;
+    left: -31px;
+    border-radius: 0px 10px 10px 20px;
     }
     div#rightleg {
       border: 6px solid #000;
-      position: absolute;
-      top: 121px;
-      width: 46px;
-      height: 30px;
-      left: 21px;
-      border-radius: 0px 0px 20px 10px;
+    position: absolute;
+    top: 112px;
+    width: 46px;
+    height: 30px;
+    left: 21px;
+    border-radius: 0px 0px 20px 10px;
     }
     div#leftarm {
       border: 6px solid #000;
@@ -367,12 +367,13 @@
 
       span {
         border: 6px solid #000;
-        width: 30px;
-        position: absolute;
-        height: 20px;
-        border-radius: 0 0 100% 100%;
-        top: 40px;
-        left: -6px;
+    width: 30px;
+    position: absolute;
+    height: 20px;
+    border-radius: 0 0 100% 100%;
+    top: 29px;
+    left: -6px;
+
       }
     }
     div#rightarm {
@@ -388,12 +389,12 @@
 
       span {
         border: 6px solid #000;
-        width: 30px;
-        position: absolute;
-        height: 20px;
-        border-radius: 0 0 100% 100%;
-        top: 40px;
-        left: -6px;
+    width: 30px;
+    position: absolute;
+    height: 20px;
+    border-radius: 0 0 100% 100%;
+    top: 29px;
+    left: -6px;
       }
     }
   }

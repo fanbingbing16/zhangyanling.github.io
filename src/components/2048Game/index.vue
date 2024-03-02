@@ -14,7 +14,16 @@
       6*6的方格组成，每次可以选择上下左右其中一个方向去滑动，每滑动一次，所有的数字方块都会往滑动的方向靠拢外，系统也会在空白的地方乱数出现一个数字方块（2或者
       4）， 相同数字的方块在靠拢、相撞时会相加。不断的叠加最终拼凑出
       2048这个数字就算成功，如果格子满了不能再滑动了则失败。
+      电脑端可以按上下左右键控制，手机端可以用按钮控制。
     </p>
+    <div class="control">
+      <el-button @click="moveUp">向上</el-button>
+      <div class="control-center">
+        <el-button @click="moveLeft">向左</el-button>
+        <el-button @click="moveRight">向右</el-button>
+      </div>
+      <el-button @click="moveDown">向下</el-button>
+    </div>
     <dialog-vue dialogTitle="提示" v-model:visible="visible">
       <template v-slot:body>
         {{ tip }}
@@ -273,7 +282,11 @@ export default {
       boxs,
       init,
       visible,
-      tip
+      tip,
+      moveLeft,
+      moveRight,
+      moveUp,
+      moveDown
     }
   }
 }
@@ -296,6 +309,33 @@ export default {
         line-height: 30px;
         box-sizing: border-box;
         outline: none;
+      }
+    }
+  }
+  .control {
+    width: 220px;
+    margin: auto;
+    :deep .el-button {
+      width: 220px;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+      background-color: #1689e7;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    .control-center {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      :deep .el-button {
+        width: 90px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        background-color: #1689e7;
+        color: #fff;
       }
     }
   }

@@ -1,38 +1,25 @@
 <template>
   <div>
     <h1>华容道</h1>
-
     <div class="huarongRoad flex">
       <div class="game-main">
         <div class="game" v-for="(box, index) in boxs" :key="index">
-          <div
-            class="game-div"
-            v-for="(item, index2) in box"
-            :key="index2"
-            @mousedown="mouseDown($event, item)"
-          >
-            <img
-              v-if="item.hasImg"
-              :src="require('../../assets/huarongRoad/' + level + '.jpg')"
-              alt=""
-              :style="{
-                width: 70 * row + 'px',
-                height: 70 * col + 'px',
-                left: -70 * item.left + 'px',
-                top: -item.right * 70 + 'px',
-              }"
-            />
+          <div class="game-div" v-for="(item, index2) in box" :key="index2" @mousedown="mouseDown($event, item)"
+            @touchstart="mouseDown($event, item)">
+            <img v-if="item.hasImg" :src="require('../../assets/huarongRoad/' + level + '.jpg')" alt="" :style="{
+              width: widthRoad * row + 'px',
+              height: widthRoad * col + 'px',
+              left: -widthRoad * item.left + 'px',
+              top: -item.right * widthRoad + 'px',
+            }" />
           </div>
         </div>
       </div>
       <div class="control">
-        <img
-          :src="require('../../assets/huarongRoad/' + level + '.jpg')"
-          :style="{
-            width: 70 * row + 'px',
-            height: 70 * col + 'px',
-          }"
-        />
+        <img :src="require('../../assets/huarongRoad/' + level + '.jpg')" :style="{
+          width: widthRoad * row + 'px',
+          height: widthRoad * col + 'px',
+        }" />
         <div class="m-t-10">关卡:{{ level }}</div>
         <div class="flex button-list m-t-10">
           <el-button @click="init()">重置</el-button>
@@ -54,12 +41,8 @@
     <dialog-vue dialogTitle="选关" v-model:visible="visible2">
       <template v-slot:body>
         <div class="game">
-          <div
-            class="game-div"
-            v-for="(item, index) in new Array(5)"
-            @click="level = index+1;init();visible2=false"
-            :key="index"
-          >
+          <div class="game-div" v-for="(item, index) in new Array(5)" @click="level = index + 1; init(); visible2 = false"
+            :key="index">
             {{ index + 1 }}
           </div>
         </div>
@@ -77,6 +60,11 @@ export default {
   setup() {
     const row = ref(3)
     const col = ref(3)
+    const width = window.innerWidth
+    const widthRoad = ref(70)
+    if (width < 769) {
+      widthRoad.value = 36
+    }
     const level = ref(1)
     const boxs = ref([[{ i: 0, j: 0, hasImg: false, left: 0, right: 0 }]])
     const tip = ref('')
@@ -135,15 +123,39 @@ export default {
       return { arr, left, right }
     }
     function mouseDown(e, box) {
-      const xx1 = e.clientX || e.clientx || 0;
-      const yy1 = e.clientY || e.clienty || 0;
+      let xx1 = e.clientX || e.clientx || e.touches[0].clientX||0;
+      let yy1 = e.clientY || e.clienty || e.touches[0].clientY||0;
+  
+      console.log(111)
+      let xx = xx1
+      let yy = yy1
+      document.ontouchmove= (e2) => {
+        xx = e2.touches[0].clientX
+        yy = e2.touches[0].clientY
+      }
+      document.ontouchend= () => {
+        console.log(xx,yy,xx1,yy1,'111 xx yy')
+        handleBox()
+      }
       document.onmousemove = function (e2) {
+        xx = e2.clientX || e2.clientx || 0
+        yy = e2.clientY || e2.clienty || 0
+
+        handleBox()
+      };
+      document.onmouseup = function () {
+        document.onmouseup = null
+        document.onmousemove = null
+        document.ontouchend = null
+        document.ontouchmove = null
+      };
+      function handleBox() {
         if (box.hasImg) {
-          const xx = e2.clientX || e2.clientx || 0;
-          const yy = e2.clientY || e2.clienty || 0;
+
           //首先获得鼠标位置坐标
           const a = xx - xx1
           const b = yy - yy1
+          console.log(a,b,'a b')
           if (Math.abs(a) >= Math.abs(b)) {
             if (a > 0) {
               //右移
@@ -191,16 +203,10 @@ export default {
             visible.value = true
           }
         }
-
-
-      };
-      document.onmouseup = function () {
-        document.onmouseup = null;
-        document.onmousemove = null;
-      };
-
+      }
 
     }
+
     function next() {
       if (level.value <= 4) {
         level.value++
@@ -219,41 +225,68 @@ export default {
       visible,
       tip,
       next,
-      visible2
+      visible2,
+      widthRoad
     }
   }
 }
 </script>
 <style lang="scss" scoped>
-.game{
+.game {
   display: flex;
   flex-wrap: wrap;
 }
+
 .huarongRoad {
   // pointer-events: none;
   user-select: none;
   justify-content: center;
+
   .game-main {
     .game {
       display: flex;
     }
   }
+
   .control {
     margin-left: 10px;
+
     img {
       width: 200px;
     }
   }
 }
+
+@media (max-width: 768px) {
+
+  /* 针对小屏幕设备的样式 */
+  .game-div {
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+
+  }
+}
+
+@media (min-width: 769px) {
+  /* 针对大屏幕设备的样式 */
+
+  .game-div {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+
+  }
+}
+
 .game-div {
-  width: 70px;
-  height: 70px;
+  // 
   border: 1px solid #bfe136;
   overflow: hidden;
   box-sizing: border-box;
   position: relative;
-  line-height: 70px;
   cursor: pointer;
+
   img {
     position: absolute;
     left: 0;
@@ -262,6 +295,7 @@ export default {
     user-select: none;
   }
 }
+
 .button-list {
   justify-content: center;
 

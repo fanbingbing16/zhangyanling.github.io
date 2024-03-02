@@ -8,29 +8,15 @@
 
       <div class="game-main">
         <div v-for="(box, index) in boxs" :key="index" class="flex">
-          <div
-            v-for="(item, index2) in box"
-            :key="index2"
-            class="item-one"
-            @click="clickBox(item)"
-          >
-            <div
-              v-if="item.place"
-              class="circle"
-              :style="'background:' + (item.place === 1 ? 'white' : '#000')"
-            ></div>
+          <div v-for="(item, index2) in box" :key="index2" class="item-one" @click="clickBox(item)">
+            <div v-if="item.place" class="circle" :style="'background:' + (item.place === 1 ? 'white' : '#000')"></div>
           </div>
         </div>
       </div>
-      <el-button
-        class="m-t-10"
-        type="primary"
-        v-if="!isMachine"
-        @click="
-          init();
-          isMachine = true;
-        "
-      >
+      <el-button class="m-t-10" type="primary" v-if="!isMachine" @click="
+        init();
+      isMachine = true;
+      ">
         人机对战
       </el-button>
     </div>
@@ -52,12 +38,18 @@ export default {
     dialogVue
   },
   setup() {
+    const row = ref(20)
+    const col = ref(20)
+    const width = window.innerWidth
+    if (width < 769) {
+      row.value = 15
+      col.value = 15
+    }
     //机器人玩五子棋的思路是
     //当用户有三个连在一起时，挡住一边，有四个时，阻挡用户，其他情况机器人自己企图完成五个连线
     const isMachine = ref(false)//是否是机器人对战
     const score = ref(0)
-    const row = ref(20)
-    const col = ref(20)
+
     const visible = ref(false)
     const tip = ref('')
     const boxs = ref([[{ place: 0, x: 0, y: 0 }]])
@@ -782,7 +774,7 @@ export default {
 
     //验证是否赢了
     function validateWin() {
-      if(visible.value) return
+      if (visible.value) return
       for (let i = 0; i < row.value; i++) {
 
         for (let j = 0; j < col.value; j++) {
@@ -874,19 +866,41 @@ export default {
     // background: #ccc;
     padding: 10px;
     height: 850px;
+
     .top {
       display: flex;
       justify-content: space-between;
     }
+
     .game-main {
       margin-top: 10px;
+
+      @media (max-width: 768px) {
+
+        /* 针对小屏幕设备的样式 */
+        .item-one {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      @media (min-width: 769px) {
+
+        /* 针对大屏幕设备的样式 */
+        .item-one {
+          width: 40px;
+          height: 40px;
+        }
+      }
+
       .item-one {
-        width: 40px;
-        height: 40px;
+        // width: 40px;
+        // height: 40px;
         border: 1px solid #000;
         box-sizing: border-box;
         background: goldenrod;
         cursor: pointer;
+
         .circle {
           width: 100%;
           height: 100%;

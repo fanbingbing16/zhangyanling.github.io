@@ -28,11 +28,25 @@ const boxs = ref([
     align-items: center;
     justify-content: center;
     align-content: center;
-
+    @media (max-width: 768px) {  
+  /* 针对小屏幕设备的样式 */  
+  .box{
+    width: 80%;
+    margin-top: 10px;
+  }
+}  
+  
+@media (min-width: 769px) {  
+  /* 针对大屏幕设备的样式 */ 
+  .box{
+    width: 20%;
+    margin-right: 20px
+  }
+}
     .box {
       padding: 20px;
-      width: 20%;
-      margin-right: 20px;
+      // width: 20%;
+      // margin-right: 20px;
       border: 1px solid #fff;
       box-shadow: 0px 0px 10px #f0f0f0;
       border-radius: 10px;

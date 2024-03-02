@@ -27,7 +27,8 @@ import VueRepl from '../components/exericiseField/vueRepl.vue'
 import htmlVue from '../components/exericiseField/html.vue'
 import personalLogs from '../components/personalLogs'
 import personalLogsSee from '../components/personalLogs/see'
-
+import perspnamResume from '../components/personalResume'
+import cutout from '../components/cutout'
 export const routes = [
   {
     path: '/', redirect: '/HelloWorld', component: App,
@@ -133,7 +134,13 @@ export const routes = [
   {
     path: '/logs/see', component: personalLogsSee,
   },
+  {
+    path: '/resume', component: perspnamResume,
+  },
   
+  {
+    path: '/cutout', component: cutout,
+  },
 ]
 
 // import App from '../App.vue'

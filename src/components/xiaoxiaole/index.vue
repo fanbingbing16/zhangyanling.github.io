@@ -477,14 +477,29 @@ export default {
     margin-left: 10px;
   }
 }
+@media (max-width: 768px) {  
+  /* 针对小屏幕设备的样式 */  
+  .game-div {
+    width: 23px;
+  height: 23px;
+  line-height: 23px;
+  }
+}  
+  
+@media (min-width: 769px) {  
+  /* 针对大屏幕设备的样式 */ 
+  .game-div {
+    width: 50px;
+  height: 50px;line-height: 50px;
+  }
+}
 .game-div {
-  width: 50px;
-  height: 50px;
+  
   border: 1px solid #bfe136;
   overflow: hidden;
   box-sizing: border-box;
   position: relative;
-  line-height: 50px;
+  
   cursor: pointer;
 }
 .button-list {

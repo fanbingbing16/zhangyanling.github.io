@@ -14,7 +14,7 @@
       <!-- <a href="/#/flower" class="one">Tutorial&nbsp;
       </a> -->
       <a href="/#/exericise" class="one">Online Code Editor&nbsp;</a>
-      <a href="/#/logs" class="one">Personal Log&nbsp;</a>
+      <!-- <a href="/#/logs" class="one">Personal Log&nbsp;</a>-->
 
     </div>
     <!-- https://uigradients.com/#Blu -->
@@ -55,42 +55,85 @@
   margin: 0;
   padding: 0.1px;
 
-  .box {
+  
+  @media (max-width: 768px) {  
+  /* 针对小屏幕设备的样式 */  
+  .box{
     color: rgb(6, 173, 151);
-    width:30%;
+    width:100%;
     background: rgba(0, 0, 0, 0.4);
     padding: 40px;
     text-align: center;
     margin: auto;
     margin-top: 5%;
     font-family: 'Century Gothic', sans-serif;
-  }
-
-  .box .box-img {
+   .box-img {
     width: 200px;
     height: 200px;
     border-radius: 50%;
   }
 
-  .box h1 {
+   h1 {
+    font-size: 30px;
+        letter-spacing: 4px;
+    font-weight: 400;
+  }
+
+   h2 {
+    font-size: 20px;
+    letter-spacing: 3px;
+    font-weight: 300;
+
+  }
+
+ 
+} .one {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    color: grey;
+  }
+}  
+  
+@media (min-width: 769px) {  
+  /* 针对大屏幕设备的样式 */ 
+.box{
+  color: rgb(6, 173, 151);
+    width:40%;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 40px;
+    text-align: center;
+    margin: auto;
+    margin-top: 5%;
+    font-family: 'Century Gothic', sans-serif;
+   .box-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
+
+   h1 {
     font-size: 50px;
     letter-spacing: 4px;
     font-weight: 400;
   }
 
-  .box h2 {
+   h2 {
     font-size: 30px;
     letter-spacing: 3px;
     font-weight: 300;
 
   }
 
-  .one {
+ 
+} .one {
     text-decoration: none;
     font-size: 20px;
     font-weight: 600;
     color: grey;
   }
+}
+  
 
   .one:hover {
     color: rgb(6, 173, 151);

@@ -235,14 +235,13 @@ export default {
     .game {
       display: flex;
       .game-div {
-        width: 60px;
-        height: 60px;
+        // width: 60px;
+        // height: 60px;
         border: 1px solid greenyellow;
-        line-height: 60px;
+        // line-height: 60px;
         font-size: 18px;
         input {
-          width: 52px;
-          height: 52px;
+     
           border: 1px solid #f1f1f1;
         }
         span {
@@ -251,5 +250,30 @@ export default {
       }
     }
   }
+  @media (max-width: 768px) {  
+  /* 针对小屏幕设备的样式 */  
+  .game-div {
+    width: 11.11vw;
+        height: 11.11vw;
+        line-height: 11.11vw;
+        input{
+          width: 9vw;
+          height: 9vw;
+        }
+  }
+}  
+  
+@media (min-width: 769px) {  
+  /* 针对大屏幕设备的样式 */ 
+  .game-div {
+    width: 60px;
+        height: 60px;
+        line-height: 60px;
+        input{
+          width: 52px;
+          height: 52px;
+        }
+  }
+}
 }
 </style>
