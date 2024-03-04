@@ -28,7 +28,7 @@ const bigText = ['Interfaces', 'Reflect', 'Reality']
 </script>
 <style lang="scss" scoped>
 .home {
-  height: 100%;
+  // height: 100%;
   width: 100%;
   margin-top: -45px;
 

@@ -1,35 +1,49 @@
 <template>
   <div class="personalResume">
     <el-radio-group v-model="active">
-      <el-radio-button label="Home">
+      <el-radio-button label="Home" @click="scroll('home')">
         <div>首页</div>
         <div>Home</div>
       </el-radio-button>
-      <el-radio-button label="About">
+      <el-radio-button label="About" @click="scroll('about')">
         <div>关于</div>
         <div>About</div>
       </el-radio-button>
-      <el-radio-button label="Works">
+      <el-radio-button label="Works" @click="scroll('works')">
         <div>作品</div>
         <div>Works</div>
       </el-radio-button>
-      <el-radio-button label="Concact">
+      <el-radio-button label="Concact" @click="scroll('concact')">
         <div>联系</div>
-        <div>Concact</div>
+        <div>Contact</div>
       </el-radio-button>
     </el-radio-group>
     <home></home>
-    <about></about>
+    <about class="m-t-100"></about>
+    <works class="m-t-150"></works>
+    <concact class="m-t-150"></concact>
     <a class=" more" @click="$router.push('/')">查看更多</a>
 
   </div>
 </template>
+
 <script setup>
 import { ref } from 'vue'
 import home from './home'
 import about from './about'
+import works from './works'
+import concact from './concact'
 const active = ref('Home')
+function scroll(name) {
+  const targetElement = document.querySelector('.' + name);
+
+  // 如果找到了目标元素，滚动到它那里  
+  if (targetElement) {
+    targetElement.scrollIntoView({ behavior: 'smooth' });
+  }
+}
 </script>
+
 <style lang="scss" scoped>
 .personalResume {
   background: black;
