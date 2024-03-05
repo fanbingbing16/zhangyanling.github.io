@@ -62,9 +62,7 @@
     color: rgb(6, 173, 151);
     width:100%;
     background: rgba(0, 0, 0, 0.4);
-    padding: 40px;
     text-align: center;
-    margin: auto;
     margin-top: 5%;
     font-family: 'Century Gothic', sans-serif;
    .box-img {

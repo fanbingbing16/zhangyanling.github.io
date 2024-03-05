@@ -39,7 +39,7 @@
       <div id="leftarm"><span></span></div>
       <div id="rightarm"><span></span></div>
       <div id="torso">
-      
+
         <div class="crotch"></div>
       </div>
       <div id="chest"></div>
@@ -48,12 +48,14 @@
     </div>
   </div>
 </template>
+
 <style lang="scss" scoped>
 .helloKitty {
   position: relative;
   display: flex;
   justify-content: center;
   margin-top: 10%;
+
   div#head {
     height: 100px;
     width: 150px;
@@ -64,10 +66,12 @@
     border-top-color: transparent;
     background-color: #fff;
     z-index: 2;
+
     #face {
       width: 100%;
       height: 100%;
       position: relative;
+
       .lefteye {
         width: 10px;
         background: #000;
@@ -77,6 +81,7 @@
         position: absolute;
         border-radius: 10px;
       }
+
       .righteye {
         width: 10px;
         background: #000;
@@ -86,6 +91,7 @@
         position: absolute;
         border-radius: 10px;
       }
+
       .nose {
         width: 19px;
         height: 13px;
@@ -98,10 +104,12 @@
         border: 3px solid #000;
       }
     }
+
     .leftwhiskers,
     .rightwhiskers {
       background: #000;
     }
+
     .leftwhiskers.one {
       position: absolute;
       width: 20px;
@@ -111,6 +119,7 @@
       transform: rotate(346deg);
       top: 57px;
       left: -21px;
+
       span {
         position: absolute;
         width: 20px;
@@ -122,6 +131,7 @@
         left: 19px;
       }
     }
+
     .leftwhiskers.two {
       width: 30px;
       position: absolute;
@@ -132,6 +142,7 @@
       left: -11px;
       border-radius: 10px 6px 6px 6px;
     }
+
     .leftwhiskers.three {
       width: 24px;
       height: 6px;
@@ -141,6 +152,7 @@
       left: -7px;
       border-radius: 10px 4px;
       position: absolute;
+
       span {
         position: absolute;
         width: 16px;
@@ -152,6 +164,7 @@
         border-radius: 0 10px 10px;
       }
     }
+
     .rightwhiskers.four {
       position: absolute;
       width: 20px;
@@ -161,6 +174,7 @@
       transform: rotate(346deg);
       top: 38px;
       right: -5px;
+
       span {
         position: absolute;
         width: 20px;
@@ -172,6 +186,7 @@
         left: 19px;
       }
     }
+
     .rightwhiskers.five {
       width: 30px;
       position: absolute;
@@ -182,6 +197,7 @@
       right: -23px;
       border-radius: 10px 6px 6px 6px;
     }
+
     .rightwhiskers.six {
       width: 24px;
       height: 6px;
@@ -191,6 +207,7 @@
       right: -19px;
       border-radius: 10px 4px;
       position: absolute;
+
       span {
         position: absolute;
         width: 10px;
@@ -203,28 +220,31 @@
       }
     }
   }
+
   div#leftear {
     border: 6px solid #000;
     width: 31px;
     height: 32px;
-    margin-left: -138px;
+    margin-left: -144px;
     border-bottom-color: transparent;
     border-right-color: transparent;
     border-radius: 10px 20px;
     transform: rotate(16deg);
-    margin-top: -7px;
+    margin-top: -14px;
     z-index: 3;
+
     span {
       height: 6px;
-    display: block;
-    width: 67px;
-    margin-left: 14px;
-    border-radius: 10px;
-    margin-top: -5px;
-    background: #000;
-    transform: rotate(355deg);
+      display: block;
+      width: 67px;
+      margin-left: 25px;
+      border-radius: 10px;
+      margin-top: -4px;
+      background: #000;
+      transform: rotate(355deg);
     }
   }
+
   div#rightear {
     border: 6px solid #000;
     width: 31px;
@@ -237,6 +257,7 @@
     margin-top: -2px;
     z-index: 3;
   }
+
   #bow {
     position: relative;
     transform: rotate(22deg);
@@ -246,13 +267,14 @@
 
     .left {
       height: 32px;
-    width: 25px;
-    border-radius: 20px;
-    border: 4px solid #000;
-    background: red;
-    left: -55px;
-    top: 4px;
-    position: absolute;
+      width: 25px;
+      border-radius: 20px;
+      border: 4px solid #000;
+      background: red;
+      left: -55px;
+      top: 4px;
+      position: absolute;
+
       span {
         height: 10px;
         width: 10px;
@@ -267,13 +289,14 @@
 
     .right {
       height: 32px;
-    width: 25px;
-    border-radius: 20px;
-    border: 4px solid #000;
-    background: red;
-    right: -13px;
-    top: 1px;
-    position: absolute;
+      width: 25px;
+      border-radius: 20px;
+      border: 4px solid #000;
+      background: red;
+      right: -13px;
+      top: 1px;
+      position: absolute;
+
       span {
         height: 10px;
         width: 10px;
@@ -285,6 +308,7 @@
         position: absolute;
       }
     }
+
     .center {
       width: 23px;
       height: 23px;
@@ -298,11 +322,13 @@
       position: absolute;
     }
   }
+
   #body {
     position: relative;
-    margin-top: 55px;
-    margin-left: -64px;
+    margin-top: 61px;
+    margin-left: -92px;
     z-index: 1;
+
     div#chest {
       position: absolute;
       width: 50px;
@@ -336,24 +362,27 @@
         left: 47px;
       }
     }
+
     div#leftleg {
       border: 6px solid #000;
-    position: absolute;
-    top: 112px;
-    width: 46px;
-    height: 30px;
-    left: -31px;
-    border-radius: 0px 10px 10px 20px;
+      position: absolute;
+      top: 112px;
+      width: 46px;
+      height: 30px;
+      left: -31px;
+      border-radius: 0px 10px 10px 20px;
     }
+
     div#rightleg {
       border: 6px solid #000;
-    position: absolute;
-    top: 112px;
-    width: 46px;
-    height: 30px;
-    left: 21px;
-    border-radius: 0px 0px 20px 10px;
+      position: absolute;
+      top: 112px;
+      width: 46px;
+      height: 30px;
+      left: 21px;
+      border-radius: 0px 0px 20px 10px;
     }
+
     div#leftarm {
       border: 6px solid #000;
       width: 30px;
@@ -367,15 +396,16 @@
 
       span {
         border: 6px solid #000;
-    width: 30px;
-    position: absolute;
-    height: 20px;
-    border-radius: 0 0 100% 100%;
-    top: 29px;
-    left: -6px;
+        width: 30px;
+        position: absolute;
+        height: 20px;
+        border-radius: 0 0 100% 100%;
+        top: 29px;
+        left: -6px;
 
       }
     }
+
     div#rightarm {
       border: 6px solid #000;
       width: 30px;
@@ -389,12 +419,12 @@
 
       span {
         border: 6px solid #000;
-    width: 30px;
-    position: absolute;
-    height: 20px;
-    border-radius: 0 0 100% 100%;
-    top: 29px;
-    left: -6px;
+        width: 30px;
+        position: absolute;
+        height: 20px;
+        border-radius: 0 0 100% 100%;
+        top: 29px;
+        left: -6px;
       }
     }
   }

@@ -151,8 +151,8 @@ import { defineAsyncComponent } from 'vue'
 
 export const routes = [
   {
-    path: '/', redirect: '/HelloWorld', component: App,
-    children: [{ path: '/HelloWorld', component: HelloWorld, }]
+    path: '/', redirect: '/home', component: App,
+    children: [{ path: '/home', component: HelloWorld, }]
   },
   {
     // path: '/', redirect: '/calendar', component: App,
@@ -233,7 +233,7 @@ export const routes = [
   },
   {
     // path: '/', redirect: '/myProject', component: App,
-    children: [{ path: '/myProject', component: defineAsyncComponent(() => import('../components/markdown/vue')) }]
+    children: [{ path: '/myProject', component: () => import('../components/markdown/vue') }]
   },
   {
     // path: '/', redirect: '/typewriting', component: App,
