@@ -15,6 +15,7 @@
       </a> -->
       <a href="/#/exericise" class="one">Online Code Editor&nbsp;</a>
       <!-- <a href="/#/logs" class="one">Personal Log&nbsp;</a>-->
+      <a href="/#/resume" class="one">Personal Resume&nbsp;</a>
 
     </div>
     <!-- https://uigradients.com/#Blu -->
