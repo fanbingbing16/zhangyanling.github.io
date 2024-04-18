@@ -142,7 +142,7 @@ this.keyDown()
       }
       this.inter = setInterval(() => {
         this.moveDown()
-      }, 300)
+      }, 600)
     },
     stopGame() {
       if (this.inter) {
