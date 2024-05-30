@@ -156,7 +156,7 @@ export const routes = [
   },
   {
     // path: '/', redirect: '/calendar', component: App,
-    // children: [{ path: '/calendar', component: defineAsyncComponent(()=>import('../components/calendar.vue')) },]
+    children: [{ path: '/calendar', component: defineAsyncComponent(()=>import('../components/calendar.vue')) },]
 
   },
   {
