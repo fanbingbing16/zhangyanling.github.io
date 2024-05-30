@@ -60,7 +60,7 @@
   @media (max-width: 768px) {  
   /* 针对小屏幕设备的样式 */  
   .box{
-    color: rgb(6, 173, 151);
+    color:white;
     width:100%;
     background: rgba(0, 0, 0, 0.4);
     text-align: center;
@@ -90,14 +90,14 @@
     text-decoration: none;
     font-size: 20px;
     font-weight: 600;
-    color: grey;
+    color: #ffcaca;
   }
 }  
   
 @media (min-width: 769px) {  
   /* 针对大屏幕设备的样式 */ 
 .box{
-  color: rgb(6, 173, 151);
+  color: white;
     width:40%;
     background: rgba(0, 0, 0, 0.4);
     padding: 40px;
@@ -129,7 +129,7 @@
     text-decoration: none;
     font-size: 20px;
     font-weight: 600;
-    color: grey;
+    color: #ffcaca;
   }
 }
   
