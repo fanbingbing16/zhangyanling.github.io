@@ -1,22 +1,20 @@
 <template>
   <div class="main">
     <div class="box">
-      <img src="..\assets\1.jpeg" alt="" class="box-img">
+      <img src="..\assets\1.jpeg" alt="" class="box-img" />
       <h1 class="name">Zhang YanLing</h1>
-      <h2>Web Front-end Development </h2>
-      <h3>Welcome to my personal website! </h3>
-      <h3>These menus can all be clicked on below
-      </h3>
-      <a href="/#/myProject" class="one">Personal project&nbsp;&nbsp;
-      </a>
-      <a href="/#/myProject?type=company" class="one">Company Projects&nbsp;
+      <h2>Web Front-end Development</h2>
+      <h3>Welcome to my personal website!</h3>
+      <h3>These menus can all be clicked on below</h3>
+      <a href="/#/myProject" class="one">Personal project&nbsp;&nbsp; </a>
+      <a href="/#/myProject?type=company" class="one"
+        >Company Projects&nbsp;
       </a>
       <!-- <a href="/#/flower" class="one">Tutorial&nbsp;
       </a> -->
       <a href="/#/exericise" class="one">Online Code Editor&nbsp;</a>
       <!-- <a href="/#/logs" class="one">Personal Log&nbsp;</a>-->
       <a href="/#/resume" class="one">Personal Resume&nbsp;</a>
-
     </div>
     <!-- https://uigradients.com/#Blu -->
     <!-- css -->
@@ -56,83 +54,77 @@
   margin: 0;
   padding: 0.1px;
 
-  
-  @media (max-width: 768px) {  
-  /* 针对小屏幕设备的样式 */  
-  .box{
-    color:white;
-    width:100%;
-    background: rgba(0, 0, 0, 0.4);
-    text-align: center;
-    margin-top: 5%;
-    font-family: 'Century Gothic', sans-serif;
-   .box-img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-  }
+  @media (max-width: 768px) {
+    /* 针对小屏幕设备的样式 */
+    .box {
+      color: white;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      text-align: center;
+      margin-top: 5%;
+      font-family: "Century Gothic", sans-serif;
+      .box-img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+      }
 
-   h1 {
-    font-size: 30px;
+      h1 {
+        font-size: 30px;
         letter-spacing: 4px;
-    font-weight: 400;
+        font-weight: 400;
+      }
+
+      h2 {
+        font-size: 20px;
+        letter-spacing: 3px;
+        font-weight: 300;
+      }
+    }
+    .one {
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: 600;
+      color: #ffcaca;
+    }
   }
 
-   h2 {
-    font-size: 20px;
-    letter-spacing: 3px;
-    font-weight: 300;
+  @media (min-width: 769px) {
+    /* 针对大屏幕设备的样式 */
+    .box {
+      color: white;
+      width: 40%;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 40px;
+      text-align: center;
+      margin: auto;
+      margin-top: 5%;
+      font-family: "Century Gothic", sans-serif;
+      .box-img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+      }
 
-  }
+      h1 {
+        font-size: 50px;
+        letter-spacing: 4px;
+        font-weight: 400;
+      }
 
- 
-} .one {
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: 600;
-    color: #ffcaca;
+      h2 {
+        font-size: 30px;
+        letter-spacing: 3px;
+        font-weight: 300;
+      }
+    }
+    .one {
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: 600;
+      color: #ffcaca;
+    }
   }
-}  
-  
-@media (min-width: 769px) {  
-  /* 针对大屏幕设备的样式 */ 
-.box{
-  color: white;
-    width:40%;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 40px;
-    text-align: center;
-    margin: auto;
-    margin-top: 5%;
-    font-family: 'Century Gothic', sans-serif;
-   .box-img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-  }
-
-   h1 {
-    font-size: 50px;
-    letter-spacing: 4px;
-    font-weight: 400;
-  }
-
-   h2 {
-    font-size: 30px;
-    letter-spacing: 3px;
-    font-weight: 300;
-
-  }
-
- 
-} .one {
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: 600;
-    color: #ffcaca;
-  }
-}
-  
 
   .one:hover {
     color: rgb(6, 173, 151);
@@ -143,5 +135,4 @@ a {
   margin-left: 10px;
   color: white;
 }
-
 </style>
