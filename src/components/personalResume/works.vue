@@ -8,7 +8,7 @@
     <div class="imgs m-t-20">
       <div @click="change(img)" v-for="(img,index) in pngHashMap" :key="img.icon" class="img-one" :style="{'margin-top':index>0?'10px':0}">
         <img :src="img.icon">
-        <div>{{ img.imgName }}</div>
+        <div>{{ img.name }}</div>
       </div>
     </div>
 
