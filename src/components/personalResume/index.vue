@@ -20,8 +20,8 @@
     </el-radio-group>
     <home></home>
     <about class="m-t-100"></about>
-    <works class="m-t-150"></works>
-    <concact class="m-t-150"></concact>
+    <works class="m-t-100"></works>
+    <concact class="m-t-100"></concact>
     <a class=" more" @click="$router.push('/')">查看更多</a>
 
   </div>
@@ -72,6 +72,7 @@ function scroll(name) {
       position: fixed;
       top: 1px;
       left: calc(50% - 144.865px);
+      z-index: 9999;
     }
 
     .el-radio-button__original-radio:checked+.el-radio-button__inner {

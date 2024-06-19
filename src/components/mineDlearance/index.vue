@@ -18,7 +18,7 @@
               !item.isClick && !item.isFlag ? '#999' : '#ccc',
             'border-bottom-color':
               !item.isClick && !item.isFlag ? '#999' : '#ccc',
-          }" class="item-one" @mousedown="startPress(item)" @mouseup="stopPress(item)" @mouseleave="stopPress(item)"
+          }" class="item-one" @click="clickBox(item)"
             @contextmenu.prevent="flagBox(item)">
             <span v-if="item.isFlag">🚩</span>
             <img v-if="item.isClick && item.isMine" src="../../assets/mine.png" />
@@ -47,10 +47,10 @@ export default {
     dialogVue
   },
   setup() {
-    const timer = ref(null) // 用于存储计时器的变量  
-    const longPress = ref(false) // 长按的标志位  
-    const shortPress = ref(false) // 短按的标志位
-    const selectBox = ref({})
+    // const timer = ref(null) // 用于存储计时器的变量  
+    // const longPress = ref(false) // 长按的标志位  
+    // const shortPress = ref(false) // 短按的标志位
+    // const selectBox = ref({})
     const score = ref(0)
     const mine = ref(20)
     const row = ref(18)
@@ -58,30 +58,30 @@ export default {
     const visible = ref(false)
     const tip = ref('')
     const boxs = ref([[{ num: 0, isFlag: false, isClick: false, isMine: false, x: 0, y: 0 }]])
-    function startPress(item) {
-      selectBox.value = item
-      // 当鼠标按下时，启动计时器  
-      timer.value = setTimeout(() => {
-        longPress.value = true; // 设置长按标志位为true  
-      }, 1000); // 设置长按的延迟时间为1000毫秒  
-    }
-    function stopPress() {
-      // 当鼠标抬起或离开按钮时，停止计时器  
-      clearTimeout(timer.value);
-      if (longPress.value) {
-        // 如果长按标志位为true，则执行长按的逻辑  
-        console.log('长按操作');
-        flagBox(selectBox.value)
-        longPress.value = false; // 重置长按标志位为false 
-      } else {
-        // 如果长按标志位为false，则执行短按的逻辑  
-        shortPress.value = true; // 设置短按标志位为true 
-        clickBox(selectBox.value)
-        setTimeout(() => {
-          shortPress.value = false; // 在一段时间后重置短按标志位为false  
-        }, 100);
-      }
-    }
+    // function startPress(item) {
+    //   selectBox.value = item
+    //   // 当鼠标按下时，启动计时器  
+    //   timer.value = setTimeout(() => {
+    //     longPress.value = true; // 设置长按标志位为true  
+    //   }, 1000); // 设置长按的延迟时间为1000毫秒  
+    // }
+    // function stopPress() {
+    //   // 当鼠标抬起或离开按钮时，停止计时器  
+    //   clearTimeout(timer.value);
+    //   if (longPress.value) {
+    //     // 如果长按标志位为true，则执行长按的逻辑  
+    //     console.log('长按操作');
+    //     flagBox(selectBox.value)
+    //     longPress.value = false; // 重置长按标志位为false 
+    //   } else {
+    //     // 如果长按标志位为false，则执行短按的逻辑  
+    //     shortPress.value = true; // 设置短按标志位为true 
+    //     clickBox(selectBox.value)
+    //     setTimeout(() => {
+    //       shortPress.value = false; // 在一段时间后重置短按标志位为false  
+    //     }, 100);
+    //   }
+    // }
     function init() {
       visible.value = false
       score.value = 0
@@ -134,12 +134,14 @@ export default {
 
     }
     function clickBox(box) {
+      if(JSON.stringify(box)==='{}') return
       if (box.isFlag) {
         boxs.value[box.x][box.y].isFlag = false
         validateWin()
         return
       }
       if (!box.isClick) {
+        console
         if (!boxs.value[box.x][box.y].isMine && !boxs.value[box.x][box.y].isClick)
           score.value++
 
@@ -274,8 +276,8 @@ export default {
       visible,
       tip,
       flagBox,
-      startPress,
-      stopPress
+      // startPress,
+      // stopPress
     }
   }
 }
