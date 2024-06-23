@@ -48,12 +48,12 @@
   background: url("../assets/bg.jpg") no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   color: white;
   margin: 0;
   padding: 0.1px;
-
+  overflow-y: auto;
   @media (max-width: 768px) {
     /* 针对小屏幕设备的样式 */
     .box {
